@@ -1,38 +1,93 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: "Almarai";
+	src: url("/fonts/Almarai-Regular.ttf") format("truetype");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+	body {
+		@apply font-Almarai;
+	}
+	.mapboxgl-compact {
+		@apply hidden;
+	}
+	.h1 {
+		@apply text-[4rem]
+        font-bold;
+	}
 
-* {
-  box-sizing: border-box;
-}
+	.h2 {
+		@apply text-[2.5rem]
+        font-bold;
+	}
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+	.h3 {
+		@apply text-[1.5rem]
+        font-bold;
+	}
 
-h1,
-h2,
-p,
-ul {
-  margin: 0;
-}
+	.subtitle {
+		@apply text-[1.5rem]
+        font-medium;
+	}
 
-ul {
-  padding: 0;
-  list-style: none;
-}
+	.body {
+		@apply text-base
+        font-medium;
+	}
 
-button {
-  padding: 0.5rem 1rem;
-  font-weight: bold;
+	.body-bold {
+		@apply text-base
+        font-bold;
+	}
+
+	.devider {
+		@apply h-28;
+	}
+	.btn {
+		@apply text-center
+            text-white
+            bg-primary
+            px-[3rem]
+            py-[1rem]
+            text-lg
+            rounded-tr-[15px]
+            rounded-bl-[15px]
+            border-2
+            border-[#548B68]
+            shadow-lg
+            font-bold;
+	}
+
+	.btn-outline {
+		@apply text-center
+            text-white
+            border-2
+            text-[#548B68]
+            border-[#548B68]
+            px-[3rem]
+            py-[1rem]
+            text-lg
+            rounded-tr-[15px]
+            rounded-bl-[15px]
+            shadow-lg
+            font-bold;
+	}
+
+	.input {
+		@apply text-center
+            text-white
+            border-2
+            text-[#548B68]
+            border-[#548B68]
+            h-[40px]
+            w-max
+            text-lg
+            rounded-[8px]
+            shadow-lg
+            font-bold;
+	}
 }
