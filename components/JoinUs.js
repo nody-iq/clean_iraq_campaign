@@ -82,7 +82,7 @@ const JoinUs = () => {
                 <span className="text-white font-bold text-[24px]">{t("Submit")}</span>
             </button>
           </div>
-        </section>
+        </form>
   )
 }
 
