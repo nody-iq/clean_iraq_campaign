@@ -13,6 +13,7 @@ export async function getStaticProps({ locale }) {
 	};
 }
 
+
 const Header = () => {
 	const { t } = useTranslation();
 
