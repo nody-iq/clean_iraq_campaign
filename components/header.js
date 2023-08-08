@@ -42,7 +42,7 @@ const Header = () => {
 		},
 		{
 			name: t("Initiatives"),
-			link: "/Initiatives",
+			link: "/initiatives",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-trophy"
@@ -75,7 +75,7 @@ const Header = () => {
 		},
 		{
 			name: t("Contact Us"),
-			link: "/Contact Us",
+			link: "/contackUs",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-message"
