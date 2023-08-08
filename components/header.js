@@ -13,6 +13,7 @@ export async function getStaticProps({ locale }) {
 	};
 }
 
+
 const Header = () => {
 	const { t } = useTranslation();
 
@@ -30,7 +31,7 @@ const Header = () => {
 		},
 		{
 			name: t("About Us"),
-			link: "/About Us",
+			link: "/About",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-question"
@@ -63,7 +64,7 @@ const Header = () => {
 		},
 		{
 			name: t("Map"),
-			link: "/Map",
+			link: "/map",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-location-dot"
