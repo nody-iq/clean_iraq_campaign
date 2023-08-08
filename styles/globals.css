@@ -209,7 +209,7 @@ form {
   @apply flex flex-col justify-center items-center w-6/12 m-auto scale-90;
 }
 .formeSection h1 {
-  @apply text-5xl relative font-bold pl-4 after:content-[""] after:h-[90%] after:absolute after:w-[5px] after:left-0 after:top-0;
+  @apply text-5xl leading-normal rtl:leading-relaxed rtl:text-4xl relative font-bold rtl:pl-0 rtl:pr-4 pl-4 after:content-[""] after:h-[90%] after:absolute after:w-[5px] rtl:after:right-0 after:left-0 after:top-0;
 }
 .formeSection h1::after {
   background: #548b68;
