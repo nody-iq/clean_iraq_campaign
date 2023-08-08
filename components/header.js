@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import logoimg from "../public/images/logo.png";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -12,7 +12,6 @@ export async function getStaticProps({ locale }) {
 		},
 	};
 }
-
 
 const Header = () => {
 	const { t } = useTranslation();
@@ -31,7 +30,7 @@ const Header = () => {
 		},
 		{
 			name: t("About Us"),
-			link: "/About",
+			link: "/about_us",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-question"
@@ -53,7 +52,7 @@ const Header = () => {
 		},
 		{
 			name: t("Events"),
-			link: "/Events",
+			link: "/events",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-bullhorn"
@@ -75,7 +74,7 @@ const Header = () => {
 		},
 		{
 			name: t("Contact Us"),
-			link: "/contackUs",
+			link: "/contact_us",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-message"
@@ -86,7 +85,7 @@ const Header = () => {
 		},
 		{
 			name: t("Blog"),
-			link: "/Blog",
+			link: "/blog",
 			icons: (
 				<FontAwesomeIcon
 					icon="fa-solid fa-heart"
@@ -124,12 +123,12 @@ const Header = () => {
 							<div className="w-16 xl:hidden pr-3 pt-[2px] md:px-4 md:pt-1 md:text-3xl text-center">
 								{link.icons}
 							</div>
-							<a
-								href={link.link}
+							<Link
 								className="font-bold md:text-[24px] duration-500"
+								href={link.link}
 							>
 								{link.name}
-							</a>
+							</Link>
 						</li>
 					))}
 				</ul>
