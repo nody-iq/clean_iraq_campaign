@@ -14,6 +14,7 @@ module.exports = {
 			colors: {
 				primary: "#548B68",
 				secondary: "#E4A954",
+				yallow: '#FFDB81',
 			},
 			fontFamily: {
 				sans: ["Roboto", "Arial", "sans-serif"],
