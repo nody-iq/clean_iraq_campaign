@@ -8,8 +8,21 @@ import {
 	faTiktok,
 	faYoutube,
 } from "@fortawesome/react-fontawesome";
+import { t } from "i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+	return {
+		props: {
+			...(await serverSideTranslations(locale, ["common", "home"])),
+		},
+	};
+};
 
 const Footer = () => {
+	const { t } = useTranslation();
+
 	let Campaign = [
 		{ name: "Home", link: "/" },
 		{ name: "Who are we ?", link: "/About Us" },
@@ -28,19 +41,19 @@ const Footer = () => {
 	];
 	let Posts = [
 		{
-			image: "/images/Copy of DSC00394.jpg",
+			image: "/images/f1.png",
 			Subtitle: "Bill Walsh leadership lessons",
 			imgAlt: "Recent Posts",
 			link: "/",
 		},
 		{
-			image: "/images/Copy of DSC00394.jpg",
+			image: "/images/f2.png",
 			Subtitle: "Bill Walsh leadership lessons",
 			imgAlt: "Recent Posts",
 			link: "/",
 		},
 		{
-			image: "/images/Copy of DSC00394.jpg",
+			image: "/images/f3.png",
 			Subtitle: "Bill Walsh leadership lessons",
 			imgAlt: "Recent Posts",
 			link: "/",
@@ -92,7 +105,7 @@ const Footer = () => {
 				</div>
 				<div className="hidden xl:grid">
 					<h3 className="text-[#E4A954] font-semibold text-[1.2rem] pl-10 py-3">
-						Recent Posts
+						{t("Recent Posts")}
 					</h3>
 					{Posts.map((item) => (
 						<div
@@ -102,21 +115,21 @@ const Footer = () => {
 							<a href={item.link}>
 								<Image
 									className="w-[73px] h-[70px]"
-									src="/images/Rectangle 10.png"
+									src={item.image}
 									alt="Picture of the author"
 									width={73}
 									height={70}
 								/>
 							</a>
 							<a className="text-white w-[110px]" href={item.link}>
-								{item.Subtitle}
+								{t(item.Subtitle)}
 							</a>
 						</div>
 					))}
 				</div>
 				<div className="flex-column text-center  md:text-start md:gap-[16px] md:pl-[120px]">
 					<h3 className="text-[#E4A954] font-semibold text-[1.2rem] py-3">
-						Campaign
+						{t("Campaign")}
 					</h3>
 					<ul className="">
 						{Campaign.map((link) => (
@@ -125,7 +138,7 @@ const Footer = () => {
 									href={link.link}
 									className="text-[#EAECF0] font-medium text-[16px] md:gap-[8px]"
 								>
-									{link.name}
+									{t(link.name)}
 								</a>
 							</li>
 						))}
@@ -133,7 +146,7 @@ const Footer = () => {
 				</div>
 				<div className="flex-column text-center md:text-start md:gap-[16px] md:pl-[120px]">
 					<h3 className="text-[#E4A954] font-semibold text-[1.2rem] py-3">
-						Resources
+						{t("Resources")}
 					</h3>
 					<ul className="">
 						{Resources.map((link) => (
@@ -142,7 +155,7 @@ const Footer = () => {
 									href={link.link}
 									className="text-[#EAECF0] font-medium text-[16px]"
 								>
-									{link.name}
+									{t(link.name)}
 								</a>
 							</li>
 						))}
@@ -150,7 +163,7 @@ const Footer = () => {
 				</div>
 				<div className="flex-column text-center md:text-start md:gap-[16px] md:pl-[120px]">
 					<h3 className="text-[#E4A954] font-semibold text-[1.2rem] py-3">
-						Social
+						{t("Social")}
 					</h3>
 					<ul className="">
 						{socials.map((link) => (
@@ -159,7 +172,7 @@ const Footer = () => {
 									href={link.url}
 									className="text-[#EAECF0] font-medium text-[16px]"
 								>
-									{link.name}
+									{t(link.name)}
 								</a>
 							</li>
 						))}
@@ -168,7 +181,7 @@ const Footer = () => {
 			</section>
 			<section className="h-[88px] bg-[#437153] flex justify-center items-center md:grid md:grid-cols-2 md:gap-x-[44px]">
 				<h3 className="text-white text-center">
-					© 2023 Iraq Clean Campaign. All rights reserved.
+					{t("© 2023 Iraq Clean Campaign. All rights reserved.")}
 				</h3>
 				<div className="hidden md:flex justify-center ">
 					{socials.map(({ icon, url }) => (
