@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }) => {
 			<Header />
 
 			<Component {...pageProps} />
-
+           
 			<Footer />
 		</div>
 	);
