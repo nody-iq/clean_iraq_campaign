@@ -263,9 +263,9 @@ export default function Home() {
 						{LatestInitiatuves.map((item) => {
 							return (
 								<PostCard
-									title={item.title}
-									author={item.author}
-									excerpt={item.excerpt}
+									title={t(item.title)}
+									author={t(item.author)}
+									excerpt={t(item.excerpt)}
 									tags={item.tags}
 									date={item.date}
 									image={item.image}
@@ -327,9 +327,9 @@ export default function Home() {
 						return (
 							<div>
 								<PostCard
-									title={item.title}
-									author={item.author}
-									excerpt={item.excerpt}
+									title={t(item.title)}
+									author={t(item.author)}
+									excerpt={t(item.excerpt)}
 									tags={item.tags}
 									date={item.date}
 									image={item.image}

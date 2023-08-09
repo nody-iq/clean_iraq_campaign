@@ -39,8 +39,7 @@
 	"Forme Input-Email": "Email",
 	"Forme Input-textarea": "How can we help ?",
 	"Forme PlaceHolder-textarea": "Tell u about your ideas, questions...",
-	"Forme Submit btn": "submit"
-	"read more about Initiatives BTN": "Read More About Initiatives"
+	"Forme Submit btn": "submit",
 	"ABOUT THE CLEANLINESS AMBASSADORS": "ABOUT THE CLEANLINESS AMBASSADORS",
 	"Who we are":"Who we are",
 	"Our Message":"Our Message",
@@ -77,5 +76,7 @@
 	"socials":"socials",
 	"Social":"Social",
 	"Bill Walsh leadership lessons":"Bill Walsh leadership lessons",
-	"© 2023 Iraq Clean Campaign. All rights reserved.":"© 2023 Iraq Clean Campaign. All rights reserved."
+	"© 2023 Iraq Clean Campaign. All rights reserved.":"© 2023 Iraq Clean Campaign. All rights reserved.",
+	"Recent blog posts":"Recent blog posts",
+	"All blog posts":"All blog posts"
 }

@@ -50,17 +50,17 @@ const JoinUs = () => {
             // value={joinus.telegramId}
             placeholder={t("Telegram ID")}></input>
 
-            <div className="flex justify-between">
+            <div className="flex justify-between justify-items-center items-center">
                 <span className="text-[24px] font-bold">{t("Gender")}</span>
-                <div className="ml-4 rtl:mr-4">
-                    <input className="border-[#333333] "
+                <div className="ml-4 rtl:mr-4 flex justify-items-center items-center">
+                    <input className="w-5 h-5 "
                     type="radio"
                     // value={joinus.gender}
                     ></input>
                     <label className="text-[24px] font-light ml-2 rtl:mr-2">{t("Male")}</label>
                 </div>
-                <div className="ml-4 rtl:mr-4">
-                    <input className=""
+                <div className="ml-4 rtl:mr-4 flex justify-items-center items-center">
+                    <input className="w-5 h-5"
                     type="radio"
                     // value={joinus.gender}
                     ></input>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Hero from "../components/Hero"
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { useTranslation } from "next-i18next";
@@ -62,9 +63,7 @@ export default function Initiatives() {
     <>
       <main>
         <div className="intiativesContainer">
-          <div className="baner">
-          <h1>{t("Campaign Initiatives")}</h1>
-          </div>
+        <Hero bg="bg-[url('/images/banner.png')]" title={t("Campaign Initiatives")}/>
           <div className="InitiativesContent">
             <div className="InitiativesCard">
               <div className="CardText">

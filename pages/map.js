@@ -3,6 +3,15 @@ import mapboxgl from "mapbox-gl";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PostCard from "../components/postCard";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+	return {
+		props: {
+			...(await serverSideTranslations(locale, ["common", "home"])),
+		},
+	};
+};
 
 export default function Home() {
 	mapboxgl.accessToken =
