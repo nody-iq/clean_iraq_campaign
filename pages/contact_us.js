@@ -34,7 +34,7 @@ export default function FeadbackPage() {
           </div>
 
           <div className="formeSection">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68]">
               <h1>
               {t("Forme Header")} <br/>
               {t("Forme Header-br")}
