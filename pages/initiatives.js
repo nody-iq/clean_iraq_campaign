@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Hero from "../components/Hero"
+import Hero from "../components/Hero";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export async function getStaticProps({ locale }) {
-	return {
-		props: {
-			...(await serverSideTranslations(locale, ["common", "home"])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "home"])),
+    },
+  };
 }
 
 export default function Initiatives() {
@@ -63,17 +63,20 @@ export default function Initiatives() {
     <>
       <main>
         <div className="intiativesContainer">
-        <Hero bg="bg-[url('/images/banner.png')]" title={t("Campaign Initiatives")}/>
+          <Hero
+            bg="bg-[url('/images/banner.png')]"
+            title={t("Campaign Initiatives")}
+          />
           <div className="InitiativesContent">
             <div className="InitiativesCard">
               <div className="CardText">
-                <h2>
-                  {t("Initiatives Card Header")}
-                </h2>
+                <h2>{t("Initiatives Card Header")}</h2>
 
                 <p>
-                {t("Initiatives Card text")}
-                  <a href="www.googel.com">{t("read More")}</a>
+                  {t("Initiatives Card text")}
+                  <a target="_blank" href="https://youtu.be/dQw4w9WgXcQ">
+                    {t("read More")}
+                  </a>
                 </p>
               </div>
               <div className="CardImgs ">
@@ -104,8 +107,10 @@ export default function Initiatives() {
                 <h2> {t("Initiatives Card Header")}</h2>
 
                 <p>
-                {t("Initiatives Card text")}
-                  <a href="www.googel.com">{t("read More")}</a>
+                  {t("Initiatives Card text")}
+                  <a target="_blank" href="https://youtu.be/dQw4w9WgXcQ">
+                    {t("read More")}
+                  </a>
                 </p>
               </div>
               <div className="CardImgs ">
@@ -132,7 +137,10 @@ export default function Initiatives() {
               </div>
             </div>
             <div className="read-more-about-Initiatives">
-              <a href="www.googel.com"> {t("read more about Initiatives BTN")}</a>
+              <a target="_blank" href="https://youtu.be/dQw4w9WgXcQ">
+                {" "}
+                {t("read more about Initiatives BTN")}
+              </a>
             </div>
           </div>
         </div>

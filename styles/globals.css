@@ -199,17 +199,18 @@ textarea {
   @apply w-[450px] border mt-4 px-2 py-4 rounded-lg border-solid border-[#999];
   outline: none;
 }
-/* form {
-  @apply shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68];
-} */
 .fomrePage {
-  @apply w-full flex h-screen;
+  @apply w-full flex h-screen justify-center;
 }
+
 .formeSection {
-  @apply flex flex-col justify-center items-center w-6/12 m-auto scale-90;
+  @apply shadow-[6px_6px_0px_#548b68] rounded-[15px] border-2 border-solid border-[#548b68]
+  flex justify-between items-center m-auto  h-[690px];
 }
+
 .formeSection h1 {
-  @apply text-5xl leading-normal rtl:leading-relaxed rtl:text-4xl relative font-bold rtl:pl-0 rtl:pr-4 pl-4 after:content-[""] after:h-[90%] after:absolute after:w-[5px] rtl:after:right-0 after:left-0 after:top-0;
+  @apply text-5xl leading-relaxed rtl:leading-relaxed  relative font-bold rtl:pl-0
+  rtl:pr-4 pl-4 after:content-[""] after:h-[90%] after:absolute after:w-[5px] rtl:after:right-0 after:left-0 after:top-0;
 }
 .formeSection h1::after {
   background: #548b68;
@@ -221,50 +222,64 @@ textarea {
   @apply mx-0 my-4;
 }
 .sideImg {
-  @apply w-6/12;
-}
-.sideImg img {
-  @apply h-full w-full object-cover;
+  height: 100%;
+  width: 600px;
+  border-radius: 15px;
+  background: url("../public/images/Doc.jpg") center center / cover;
 }
 .submitBTN {
-  @apply w-full text-white font-bold tracking-[1px] bg-[#548b68] transition-[0.2s] shadow-[5px_5px_5px_#0000002f] px-0 py-2.5 rounded-[0_8px_0_8px] hover:bg-[#24673d];
+  @apply w-full text-white font-bold tracking-[1px] bg-[#548b68] transition-[0.2s]
+   shadow-[5px_5px_5px_#0000002f] px-0 py-2.5 rounded-[0_8px_0_8px] hover:bg-[#24673d];
+}
+/* ========Media for Contact US Page======== */
+/* ========Media for Contact US Page======== */
+/* ========Media for Contact US Page======== */
+@media (max-width: 1600px) {
+  .formeSection {
+    @apply scale-[0.8];
+  }
 }
 @media (max-width: 1200px) {
   .formeSection h1 {
     @apply text-[4vw];
   }
-  .sideImg {
-    @apply w-[30%];
-  }
 }
-/* ========Media for Contact US Page======== */
-/* ========Media for Contact US Page======== */
-/* ========Media for Contact US Page======== */
 
-@media (max-width: 900px) {
-  form {
-    @apply shadow-none p-0 border-none;
+@media (max-width: 991px) {
+  .sideImg {
+    display: none;
   }
   .formeSection h1 {
-    @apply text-[6vw];
-  }
-  .sideImg {
-    @apply w-[15%];
-  }
-  input,
-  textarea {
-    @apply w-[70vw];
+    @apply text-[2.5rem];
   }
 }
 @media (max-width: 600px) {
-  .sideImg {
-    @apply hidden;
+  .formeSection {
+    @apply shadow-none p-0 border-none;
   }
+
   input,
   textarea {
-    @apply w-[80vw] mt-2;
+    @apply w-[90vw] mt-2;
   }
   .formeSection h1 {
-    @apply text-[7.5vw];
+    @apply text-[2rem];
+  }
+}
+
+/* ===================================== */
+/* =====Read More Page Style========== */
+/* ===================================== */
+.mainContainerForReadMore {
+  @apply w-2/5 mt-[50px] m-auto;
+}
+@media (max-width: 1350px) {
+  .mainContainerForReadMore {
+    @apply w-4/5;
+  }
+}
+@media (max-width: 991px) {
+  .mainContainerForReadMore {
+    @apply w-full px-4 py-0;
   }
 }
