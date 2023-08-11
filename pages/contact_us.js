@@ -25,23 +25,16 @@ export default function FeadbackPage() {
     <>
       <main>
         <div className="fomrePage">
-          <div className="sideImg">
-            {/* the image looks shit becaouse of the header space at the top */}
-            <img
-              src="https://www.alsumaria.tv/uploadImages/DocumentImages/Doc-P-369435-637461378995257715.jpg"
-              alt="img"
-            />
-          </div>
-
           <div className="formeSection">
-            <form onSubmit={handleSubmit} className="shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68]">
-              <h1>
-              {t("Forme Header")} <br/>
-              {t("Forme Header-br")}
+            <form onSubmit={handleSubmit}
+            className="p-12">
+              <h1 >
+                {t("Forme Header")} <br />
+                {t("Forme Header-br")}
               </h1>
               <p>
-              {t("Forme p-tag")}
-              
+                {t("Forme p-tag")}
+
                 <span className="SPAN"> support@iraqclean.com</span>
               </p>
               <div className="input-forForme">
@@ -53,7 +46,7 @@ export default function FeadbackPage() {
                   }}
                   type="text"
                   name="Name"
-                  placeholder= {t("Forme PlaceHolder-Name")}
+                  placeholder={t("Forme PlaceHolder-Name")}
                 />
               </div>
               <div className="input-forForme">
@@ -64,7 +57,7 @@ export default function FeadbackPage() {
                     setEmail(e.target.value);
                   }}
                   type="email"
-                  name= {t("Forme PlaceHolder-Email")}
+                  name={t("Forme PlaceHolder-Email")}
                   placeholder="you@company.com"
                 />
               </div>
@@ -82,6 +75,9 @@ export default function FeadbackPage() {
               </div>
               <button className="submitBTN">{t("Forme Submit btn")}</button>
             </form>
+            <div className="sideImg">
+
+            </div>
           </div>
         </div>
       </main>
