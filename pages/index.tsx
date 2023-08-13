@@ -247,7 +247,7 @@ const Home: React.FC = () => {
 						)}
 					</div>
 					<div className="h-full" data-aos="fade-in">
-						<div className="shadow-xl w-full h-[500px] lg:h-[575px]">
+						<div className="shadow-xl w-full h-[500px] lg:h-[540px]">
 							<Map />
 						</div>
 					</div>
