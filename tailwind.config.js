@@ -5,16 +5,15 @@ module.exports = {
 	content: [
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/pages/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/**/*.{js,ts,jsx,tsx,mdx}",
+		"./node_modules/flowbite-react/**/*.js",
 	],
 	theme: {
 		extend: {
 			colors: {
 				primary: "#548B68",
 				secondary: "#E4A954",
-				yallow: '#FFDB81',
 			},
 			fontFamily: {
 				sans: ["Roboto", "Arial", "sans-serif"],
@@ -40,14 +39,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [
-		// plugin(function ({ addComponents }) {
-		// 	addComponents({
-		// 		".text-h1": {
-		// 			fontSize: "4rem",
-		// 			fontWeight: "700",
-		// 		},
-		// 	});
-		// }),
-	],
+	plugins: [require("@tailwindcss/line-clamp"), require("flowbite/plugin")],
 };
