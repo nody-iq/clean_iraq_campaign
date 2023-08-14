@@ -113,8 +113,8 @@ const Header: React.FC = () => {
 	let [open, setOpen] = React.useState(false);
 
 	return (
-		<header className="shadow-md md:shadow-lg">
-			<div className="container mx-auto flex justify-between items-center pt-4 pb-1 h-[62px] md:h-[118px] md:pt-0">
+		<header className="shadow-md md:shadow-lg ">
+			<div className="container mx-auto flex justify-between items-center pt-4 pb-1 h-[62px] md:h-[80px] md:pt-0">
 				<a href="/">
 					<Image
 						className=" w-[51.56px] h-[46.41px] md:w-[100px] md:h-[90px] cursor-pointer "
@@ -124,9 +124,9 @@ const Header: React.FC = () => {
 						height={90}
 					/>
 				</a>
-				<nav className="xl:flex items-center justify-between bg-white xl:px-10 px-7 z-30">
+				<nav className="xl:flex  items-center justify-between  bg-white xl:px-10 px-7 z-30">
 					<ul
-						className={`md:mt-[30px] xl:flex xl:items-center xl:pb-8  absolute xl:static bg-[#fff] xl:z-auto  left-0 w-full xl:w-auto xl:pl-0 pl-9 transition-all duration-500 ease-in ${
+						className={` md:mt-[30px] xl:flex xl:items-center xl:pb-6  absolute xl:static bg-[#fff] xl:z-auto  left-0 w-full xl:w-auto xl:pl-0 pl-9 transition-all duration-500 ease-in ${
 							open ? "top-[60.5px] md:top-20" : "top-[-540px]"
 						}`}
 					>
@@ -139,7 +139,7 @@ const Header: React.FC = () => {
 									{link.icons}
 								</div>
 								<Link
-									className="font-bold md:text-[24px] duration-500"
+									className="font-bold md:text-[20px] duration-500"
 									href={link.link}
 								>
 									{t(link.name)}
