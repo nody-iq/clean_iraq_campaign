@@ -88,8 +88,15 @@
 	}
 
 	.form {
-		@apply shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68];
+		@apply shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68] ;
 	}
+	@media (max-width: 580px) {
+		.form {
+		  border: none ;
+		  box-shadow: none ;
+		}
+	  }
+	  
 	/* .input {
 		@apply text-center
             text-white
@@ -112,6 +119,15 @@
 		@apply w-full h-[46px] border mt-2 px-2 py-4 rounded-lg border-solid border-[#999];
 		outline: none;
 	}
+	.contactUS-input {
+		@apply rounded-lg
+	}
+	.input-forForme{
+		@apply mt-4
+	}
+	#p-tag-contactus {
+		@apply pt-3
+	}
 	textarea {
 		@apply w-full border mt-4 px-2 py-4 rounded-lg border-solid border-[#999];
 		outline: none;
@@ -120,7 +136,7 @@
 		@apply w-full flex h-screen;
 	}
 
-	.input-forForme {
+	.textarea-div {
 		@apply mx-0 my-4;
 	}
 

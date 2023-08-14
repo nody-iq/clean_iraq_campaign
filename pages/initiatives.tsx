@@ -75,7 +75,7 @@ const Initiatives: React.FC = () => {
 
 								<p>
 									{t("Initiatives Card text")}
-									<a href="www.googel.com">{t("read More")}</a>
+									<a href="https://youtu.be/dQw4w9WgXcQ" target="_blanck">{t("read More")}</a>
 								</p>
 							</div>
 							<div className="CardImgs ">
@@ -107,7 +107,7 @@ const Initiatives: React.FC = () => {
 
 								<p>
 									{t("Initiatives Card text")}
-									<a href="www.googel.com">{t("read More")}</a>
+									<a href="https://youtu.be/dQw4w9WgXcQ" target="_blanck">{t("read More")}</a>
 								</p>
 							</div>
 							<div className="CardImgs ">
@@ -134,7 +134,7 @@ const Initiatives: React.FC = () => {
 							</div>
 						</div>
 						<div className="read-more-about-Initiatives">
-							<a href="www.googel.com">
+							<a href="https://youtu.be/dQw4w9WgXcQ" target="_blanck">
 								{" "}
 								{t("read more about Initiatives BTN")}
 							</a>
