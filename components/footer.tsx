@@ -138,6 +138,7 @@ const Footer: React.FC = () => {
 								className="px-2 text-[1.5rem]"
 								color="white"
 							/>
+							<i className="fa-brands fa-twitter"></i>
 						</a>
 					))}
 				</div>
