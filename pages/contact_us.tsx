@@ -33,7 +33,7 @@ const FeadbackPage: React.FC = () => {
 							</h1>
 							<p id="p-tag-contactus">
 								{t("Forme p-tag")}
-								<span className="SPAN">support@iraqclean.com</span>
+								<span className="SPAN"> support@iraqclean.com</span>
 							</p>
 							<div className="input-forForme">
 								<label htmlFor="Name">{t("Forme Input-Name")}</label> <br />
