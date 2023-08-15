@@ -31,13 +31,14 @@ const FeadbackPage: React.FC = () => {
 								{t("Forme Header")} <br />
 								{t("Forme Header-br")}
 							</h1>
-							<p>
+							<p id="p-tag-contactus">
 								{t("Forme p-tag")}
 								<span className="SPAN">support@iraqclean.com</span>
 							</p>
 							<div className="input-forForme">
 								<label htmlFor="Name">{t("Forme Input-Name")}</label> <br />
 								<input
+								className="contactUS-input"
 									value={name}
 									onChange={(e) => {
 										setName(e.target.value);
@@ -50,6 +51,7 @@ const FeadbackPage: React.FC = () => {
 							<div className="input-forForme">
 								<label htmlFor="Email">{t("Forme Input-Email")}</label> <br />
 								<input
+								className="contactUS-input"
 									value={email}
 									onChange={(e) => {
 										setEmail(e.target.value);
@@ -59,7 +61,7 @@ const FeadbackPage: React.FC = () => {
 									placeholder="you@company.com"
 								/>
 							</div>
-							<div className="input-forForme">
+							<div className="textarea-div">
 								<label htmlFor="feadback">{t("Forme Input-textarea")}</label>
 								<br />
 								<textarea
