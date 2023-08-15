@@ -3,63 +3,63 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: "Almarai";
-	src: url("/fonts/Almarai-Regular.ttf") format("truetype");
+  font-family: "Almarai";
+  src: url("/fonts/Almarai-Regular.ttf") format("truetype");
 }
 
 #marker {
-	background-image: url("https://academy.bloom.pm/images/cleanup-iraq/pin.png");
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	cursor: pointer;
+  background-image: url("https://academy.bloom.pm/images/cleanup-iraq/pin.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 @layer components {
-	body {
-		@apply font-Almarai;
-	}
-	.mapboxgl-compact {
-		@apply hidden;
-	}
-	.h1 {
-		@apply text-[4rem]
+  body {
+    @apply font-Almarai;
+  }
+  .mapboxgl-compact {
+    @apply hidden;
+  }
+  .h1 {
+    @apply text-[4rem]
         font-bold;
-	}
+  }
 
-	.h2 {
-		@apply text-[2.5rem]
+  .h2 {
+    @apply text-[2.5rem]
         font-bold;
-	}
+  }
 
-	.h3 {
-		@apply text-[1.5rem]
+  .h3 {
+    @apply text-[1.5rem]
         font-bold;
-	}
+  }
 
-	.subtitle {
-		@apply text-[1.5rem]
+  .subtitle {
+    @apply text-[1.5rem]
         font-medium;
-	}
+  }
 
-	.body {
-		@apply text-base
+  .body {
+    @apply text-base
         font-medium;
-	}
+  }
 
-	.body-bold {
-		@apply text-base
+  .body-bold {
+    @apply text-base
         font-bold;
-	}
+  }
 
-	.devider {
-		@apply h-20;
-	}
-	.btn {
-		@apply text-center
+  .devider {
+    @apply h-20;
+  }
+  .btn {
+    @apply text-center
             text-white
             bg-primary
             px-[3rem]
@@ -71,9 +71,9 @@
             border-[#548B68]
             shadow-lg
             font-bold;
-	}
-	.btn-outline {
-		@apply text-center
+  }
+  .btn-outline {
+    @apply text-center
             text-white
             border-2
             text-[#548B68]
@@ -85,191 +85,145 @@
             rounded-bl-[15px]
             shadow-lg
             font-bold;
-	}
+  }
 
-	.form {
-		@apply shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68] ;
-	}
-	@media (max-width: 580px) {
-		.form {
-		  border: none ;
-		  box-shadow: none ;
-		}
-	  }
-	  
-	/* .input {
-		@apply text-center
-            text-white
-            border-2
-            text-[#548B68]
-            border-[#548B68]
-            h-[40px]
-            w-max
-            text-lg
-            rounded-[8px]
-            shadow-lg
-            font-bold;
-	} */
+  /* =====Contact US Page Style===== */
+  .form {
+    @apply shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68];
+  }
+  @media (max-width: 580px) {
+    .form {
+      border: none;
+      box-shadow: none;
+	  padding: 0.5rem;
+	  position: relative;
+	  top: -80px
+    }
+  }
 
-	/* =====Contact US Page Style===== */
-	.SPAN {
-		@apply text-[blueviolet];
-	}
-	input {
-		@apply w-full h-[46px] border mt-2 px-2 py-4 rounded-lg border-solid border-[#999];
-		outline: none;
-	}
-	.contactUS-input {
-		@apply rounded-lg
-	}
-	.input-forForme{
-		@apply mt-4
-	}
-	#p-tag-contactus {
-		@apply pt-3
-	}
-	textarea {
-		@apply w-full border mt-4 px-2 py-4 rounded-lg border-solid border-[#999];
-		outline: none;
-	}
-	.fomrePage {
-		@apply w-full flex h-screen;
-	}
+  .SPAN {
+    @apply text-[blueviolet];
+  }
+  input {
+    @apply w-full h-[46px] border mt-2 px-2 py-4 rounded-lg border-solid border-[#999];
+    outline: none;
+  }
+  .contactUS-input {
+    @apply rounded-lg;
+  }
+  .input-forForme {
+    @apply mt-4;
+  }
+  #p-tag-contactus {
+    @apply pt-3;
+  }
+  textarea {
+    @apply w-full border mt-4 px-2 py-4 rounded-lg border-solid border-[#999];
+    outline: none;
+  }
+  .fomrePage {
+    @apply w-full flex h-screen ;
+  }
 
-	.textarea-div {
-		@apply mx-0 my-4;
-	}
+  .textarea-div {
+    @apply mx-0 my-4;
+  }
 
-	.submitBTN {
-		@apply w-full text-white font-bold tracking-[1px] bg-[#548b68] transition-[0.2s] shadow-[5px_5px_5px_#0000002f] px-0 py-2.5 rounded-[0_8px_0_8px] hover:bg-[#24673d];
-	}
+  .submitBTN {
+    @apply w-full text-white font-bold tracking-[1px] bg-[#548b68] transition-[0.2s] shadow-[5px_5px_5px_#0000002f] px-0 py-2.5 rounded-[0_8px_0_8px] hover:bg-[#24673d];
+  }
 
-	.baner {
-		@apply w-full h-[60vh] flex items-center justify-center;
-		background: linear-gradient(
-				rgba(84, 140, 105, 0.5),
-				rgba(84, 139, 104, 0.5)
-			),
-			url(../public/images/banner.png) no-repeat bottom center / cover;
-	}
+  .baner {
+    @apply w-full h-[60vh] flex items-center justify-center;
+    background: linear-gradient(
+        rgba(84, 140, 105, 0.5),
+        rgba(84, 139, 104, 0.5)
+      ),
+      url(../public/images/banner.png) no-repeat bottom center / cover;
+  }
 
-	.baner h1 {
-		@apply text-white font-bold text-[64px] inline tracking-[1px];
-		text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-	}
+  .baner h1 {
+    @apply text-white font-bold text-[64px] inline tracking-[1px];
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  }
 
-	.InitiativesContent {
-		@apply relative mt-8 px-4 py-0 mb-4;
-	}
+  .InitiativesContent {
+    @apply relative mt-8 px-4 py-0 mb-4;
+  }
 
-	.InitiativesCard {
-		@apply flex justify-between flex-wrap w-[70%] gap-4 m-auto px-0 py-8 border-t;
-	}
+  .InitiativesCard {
+    @apply flex justify-between flex-wrap w-[70%] gap-4 m-auto px-0 py-8 border-t;
+  }
 
-	.CardText {
-		@apply w-6/12 mb-4;
-	}
-	.CardImgs {
-		@apply h-[400px] w-[500px] relative;
-	}
-	.CardImgs img {
-		@apply w-full h-full object-cover rounded-[15px];
-		filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.2));
-	}
-	.CardText h2 {
-		@apply tracking-[2px] font-semibold text-[2rem] relative mb-8 rtl:pl-0 rtl:pr-4 pl-4 after:content-[""] after:h-full after:absolute after:w-[5px] rtl:after:right-0 after:left-0 after:top-0;
-	}
-	.CardText h2::after {
-		background: #548b68;
-	}
-	.read-more-about-Initiatives {
-		@apply absolute -translate-x-2/4 h-[100px] w-[70%] flex items-center justify-center left-2/4 -bottom-2.5;
-		background: linear-gradient(to top, #ffffff 50%, transparent);
-	}
-	.read-more-about-Initiatives a {
-		@apply font-bold;
-	}
+  .CardText {
+    @apply w-6/12 mb-4;
+  }
+  .CardImgs {
+    @apply h-[400px] w-[500px] relative;
+  }
+  .CardImgs img {
+    @apply w-full h-full object-cover rounded-[15px];
+    filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.2));
+  }
+  .CardText h2 {
+    @apply tracking-[2px] font-semibold text-[2rem] relative mb-8 rtl:pl-0 rtl:pr-4 pl-4 after:content-[""] after:h-full after:absolute after:w-[5px] rtl:after:right-0 after:left-0 after:top-0;
+  }
+  .CardText h2::after {
+    background: #548b68;
+  }
+  .read-more-about-Initiatives {
+    @apply absolute -translate-x-2/4 h-[100px] w-[70%] flex items-center justify-center left-2/4 -bottom-2.5;
+    background: linear-gradient(to top, #ffffff 50%, transparent);
+  }
+  .read-more-about-Initiatives a {
+    @apply font-bold;
+  }
 }
 
 /* ========Media for Initiatives======== */
 
-/* @media (max-width: 1510px) {
-	.InitiativesCard {
-		@apply w-full justify-around;
-	}
-	.read-more-about-Initiatives {
-		@apply w-full;
-	}
+@media (max-width: 1510px) {
+  .InitiativesCard {
+    @apply w-full justify-around;
+  }
+  .read-more-about-Initiatives {
+    @apply w-full;
+  }
 }
 
 @media (max-width: 1250px) {
-	.CardImgs {
-		@apply h-[350px] w-[450px];
-	}
+  .CardImgs {
+    @apply h-[350px] w-[450px];
+  }
 }
 
 @media (max-width: 990px) {
-	.CardText {
-		@apply w-[90%];
-	}
-	.InitiativesCard {
-		justify-content: start;
-	}
-	.baner h1 {
-		@apply text-[6vw];
-	}
-	.baner {
-		@apply h-[30vh];
-	}
+  .CardText {
+    @apply w-[90%];
+  }
+  .InitiativesCard {
+    justify-content: start;
+  }
+  .baner h1 {
+    @apply text-[6vw];
+  }
+  .baner {
+    @apply h-[30vh];
+  }
 }
 
 @media (max-width: 600px) {
-	.CardText {
-		@apply w-full;
-	}
-	.CardText h2 {
-		@apply text-[6vw];
-	}
-	p {
-		@apply text-sm;
-	}
+  .CardText {
+    @apply w-full;
+  }
+  .CardText h2 {
+    @apply text-[6vw];
+  }
+  p {
+    @apply text-sm;
+  }
 }
-
-@media (max-width: 1200px) {
-	.formeSection h1 {
-		@apply text-[4vw];
-	}
-	.sideImg {
-		@apply w-[30%];
-	}
+/* this is for event page inputs this doesn't affect anything leave it alone */
+.input-forForme input {
+  @apply rounded-lg;
 }
-
-
-@media (max-width: 900px) {
-	form {
-		@apply shadow-none p-0 border-none;
-	}
-	.formeSection h1 {
-		@apply text-[6vw];
-	}
-	.sideImg {
-		@apply w-[15%];
-	}
-	input,
-	textarea {
-		@apply w-[70vw];
-	}
-}
-
-@media (max-width: 600px) {
-	.sideImg {
-		@apply hidden;
-	}
-	input,
-	textarea {
-		@apply w-[80vw] mt-2;
-	}
-	.formeSection h1 {
-		@apply text-[7.5vw];
-	}
-} */
