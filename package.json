@@ -19,6 +19,7 @@
 		"babel-plugin-macros": "^3.1.0",
 		"flowbite": "^1.8.1",
 		"flowbite-react": "^0.5.0",
+		"gray-matter": "^4.0.3",
 		"i18next": "^23.4.1",
 		"mapbox-gl": "^2.15.0",
 		"next": "latest",
@@ -31,10 +32,14 @@
 		"react-i18next": "^13.0.3",
 		"react-icons": "^4.10.1",
 		"react-intl": "^6.4.4",
+		"react-markdown": "^8.0.7",
+		"remark": "^14.0.3",
+		"remark-html": "^15.0.2",
 		"taos": "^1.0.5",
 		"yup": "^1.2.0"
 	},
 	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.9",
 		"@types/node": "20.4.5",
 		"@types/react": "18.2.17",
 		"autoprefixer": "^10.4.14",
