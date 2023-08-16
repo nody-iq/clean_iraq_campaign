@@ -13,8 +13,8 @@ const LanguageSwitcher: React.FC = () => {
 	const router = useRouter();
 	const { t } = useTranslation();
 	const languages = [
-		{ value: "ar", label: "AR" },
-		{ value: "en", label: "EN" },
+		{ value: "ar", label: "Arabic" },
+		{ value: "en", label: "English" },
 	];
 
 	const handleLanguageChange = (locale) => {
@@ -29,7 +29,7 @@ const LanguageSwitcher: React.FC = () => {
 		<Menu as="div" className="relative inline-block text-left">
 			<div>
 				<Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-					{router.locale == "ar" ? "AR" : "EN"}
+					{router.locale == "ar" ? "Arabic" : "English"}
 					<FontAwesomeIcon
 						icon={faLanguage}
 						className="px-2 lg:text-[1.5em]"
