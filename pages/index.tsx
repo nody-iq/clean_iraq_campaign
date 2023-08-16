@@ -18,16 +18,48 @@ import PostCard from "../components/postCard";
 import InitiativeCard from "../components/initiativeCard";
 import CountUp from "react-countup";
 import Map from "../components/map";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { GetStaticProps } from "next";
+import Link from "next/link";
 
-export async function getStaticProps({ locale }) {
+type PostFrontmatter = {
+	title: string;
+	slug: string;
+};
+
+type Props = {
+	posts: PostFrontmatter[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({
+	locale,
+	params,
+}) => {
+	const postsDirectory = path.join(process.cwd(), "pages/blog/posts");
+
+	const postFiles = fs.readdirSync(postsDirectory);
+	const posts = postFiles.map((filename) => {
+		const filePath = path.join(postsDirectory, filename);
+		const content = fs.readFileSync(filePath, "utf-8");
+		const frontmatter = matter(content) as matter.GrayMatterFile<string>;
+		const post: PostFrontmatter = {
+			...JSON.parse(JSON.stringify(frontmatter)),
+			slug: filename.replace(".md", ""),
+		};
+		return post;
+	});
+
 	return {
 		props: {
 			...(await serverSideTranslations(locale, ["common", "home"])),
+			posts,
 		},
 	};
-}
+};
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ posts }: Props) => {
 	const router = useRouter();
 	const { t } = useTranslation();
 	const [Team, setTeam] = React.useState([
@@ -295,25 +327,27 @@ const Home: React.FC = () => {
 					{t("Recent Posts")}
 				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:justify-center gap-10">
-					{LatestPosts.map((item, key) => {
+					{posts.slice(0, 6).map((item, key) => {
 						return (
-							!Loader.LatestPosts &&
-							item["photos"] && (
-								<PostCard
-									key={key}
-									title={item["title"]}
-									author={item["author"]}
-									excerpt={item["excerpt"]}
-									date={item["date"]}
-									photos={item["photos"]}
-									direction="rows"
-									duration={(key + 1) * 300}
-									notify={false}
-								/>
-							)
+							<div
+								className={`transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary-500 duration-300`}
+							>
+								<Link href={`./blog/${item["slug"]}`}>
+									<PostCard
+										key={key}
+										title={item["data"]["title"]}
+										author={item["data"]["author"]}
+										excerpt={item["content"]}
+										date={item["data"]["date"]}
+										thumbnail={item["data"]["thumbnail"]}
+										direction="rows"
+										duration={(key + 1) * 300}
+										notify={false}
+									/>
+								</Link>
+							</div>
 						);
 					})}
-					{Loader.LatestPosts && <Skeleton repeat={3} direction="col" />}
 				</div>
 			</section>
 			<div className="devider" />
