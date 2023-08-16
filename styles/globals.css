@@ -39,7 +39,34 @@
     @apply text-[1.5rem]
         font-bold;
   }
+  .btn {
+    @apply text-center
+            text-white
+            bg-primary
+            px-[3rem]
+            py-[1rem]
+            text-lg
+            rounded-tr-[15px]
+            rounded-bl-[15px]
+            border-2
+            border-[#548B68]
+            shadow-lg
+            font-bold;
+  }
 
+  /* this is for small screen  */
+  @media (max-width:500px) {
+	.h3{
+		@apply  text-xl
+	}
+	.h3.p {
+		@apply font-normal text-sm
+	}
+	.btn {
+		@apply  px-[2rem] text-sm
+	}
+  }
+  /* ========================== */
   .subtitle {
     @apply text-[1.5rem]
         font-medium;
@@ -58,20 +85,7 @@
   .devider {
     @apply h-20;
   }
-  .btn {
-    @apply text-center
-            text-white
-            bg-primary
-            px-[3rem]
-            py-[1rem]
-            text-lg
-            rounded-tr-[15px]
-            rounded-bl-[15px]
-            border-2
-            border-[#548B68]
-            shadow-lg
-            font-bold;
-  }
+ 
   .btn-outline {
     @apply text-center
             text-white

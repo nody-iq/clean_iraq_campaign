@@ -109,18 +109,18 @@ const Home: React.FC = () => {
 					<div
 						data-aos="fade-right"
 						data-aos-duration="1000"
-						className="lg:w-[64%] text-center text-white mt-[12rem] md:mt-0 md:text-left md:text-black flex flex-col gap-2"
+						className="lg:w-[64%] text-center xs:px-2 text-white mt-[12rem] md:mt-0 md:text-left md:text-black flex flex-col gap-2"
 					>
 						<h1 className="fade-right h3 md:h2 md:text-left rtl:md:text-right lg:h1">
 							{t("CLEANLINESS AMBASSADORS IN IRAQ")}
 						</h1>
-						<h3 className="h3 text-[1rem] md:text-[1.4rem] md:text-left rtl:md:text-right">
+						<h3 className="h3 p text-[1rem] md:text-[1.4rem]  md:text-left rtl:md:text-right">
 							{t(
 								"A voluntary campaign to organize gatherings to clean public places and spread the culture of cleanliness"
 							)}
 						</h3>
 						<button
-							className="btn py-2 w-fit h2 self-center md:self-auto"
+							className="btn  py-2 w-fit h2 self-center md:self-auto"
 							type="submit"
 							onClick={() => {
 								router.push(`/contact_us`);
