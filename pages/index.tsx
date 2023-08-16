@@ -18,16 +18,48 @@ import PostCard from "../components/postCard";
 import InitiativeCard from "../components/initiativeCard";
 import CountUp from "react-countup";
 import Map from "../components/map";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { GetStaticProps } from "next";
+import Link from "next/link";
 
-export async function getStaticProps({ locale }) {
+type PostFrontmatter = {
+	title: string;
+	slug: string;
+};
+
+type Props = {
+	posts: PostFrontmatter[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({
+	locale,
+	params,
+}) => {
+	const postsDirectory = path.join(process.cwd(), "pages/blog/posts");
+
+	const postFiles = fs.readdirSync(postsDirectory);
+	const posts = postFiles.map((filename) => {
+		const filePath = path.join(postsDirectory, filename);
+		const content = fs.readFileSync(filePath, "utf-8");
+		const frontmatter = matter(content) as matter.GrayMatterFile<string>;
+		const post: PostFrontmatter = {
+			...JSON.parse(JSON.stringify(frontmatter)),
+			slug: filename.replace(".md", ""),
+		};
+		return post;
+	});
+
 	return {
 		props: {
 			...(await serverSideTranslations(locale, ["common", "home"])),
+			posts,
 		},
 	};
-}
+};
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ posts }: Props) => {
 	const router = useRouter();
 	const { t } = useTranslation();
 	const [Team, setTeam] = React.useState([
@@ -109,18 +141,18 @@ const Home: React.FC = () => {
 					<div
 						data-aos="fade-right"
 						data-aos-duration="1000"
-						className="lg:w-[64%] text-center text-white mt-[12rem] md:mt-0 md:text-left md:text-black flex flex-col gap-2"
+						className="lg:w-[64%] text-center xs:px-2 text-white mt-[12rem] md:mt-0 md:text-left md:text-black flex flex-col gap-2"
 					>
 						<h1 className="fade-right h3 md:h2 md:text-left rtl:md:text-right lg:h1">
 							{t("CLEANLINESS AMBASSADORS IN IRAQ")}
 						</h1>
-						<h3 className="h3 text-[1rem] md:text-[1.4rem] md:text-left rtl:md:text-right">
+						<h3 className="h3 p text-[1rem] md:text-[1.4rem]  md:text-left rtl:md:text-right">
 							{t(
 								"A voluntary campaign to organize gatherings to clean public places and spread the culture of cleanliness"
 							)}
 						</h3>
 						<button
-							className="btn py-2 w-fit h2 self-center md:self-auto"
+							className="btn  py-2 w-fit h2 self-center md:self-auto"
 							type="submit"
 							onClick={() => {
 								router.push(`/contact_us`);
@@ -295,25 +327,27 @@ const Home: React.FC = () => {
 					{t("Recent Posts")}
 				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:justify-center gap-10">
-					{LatestPosts.map((item, key) => {
+					{posts.slice(0, 6).map((item, key) => {
 						return (
-							!Loader.LatestPosts &&
-							item["photos"] && (
-								<PostCard
-									key={key}
-									title={item["title"]}
-									author={item["author"]}
-									excerpt={item["excerpt"]}
-									date={item["date"]}
-									photos={item["photos"]}
-									direction="rows"
-									duration={(key + 1) * 300}
-									notify={false}
-								/>
-							)
+							<div
+								className={`transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary-500 duration-300`}
+							>
+								<Link href={`./blog/${item["slug"]}`}>
+									<PostCard
+										key={key}
+										title={item["data"]["title"]}
+										author={item["data"]["author"]}
+										excerpt={item["content"]}
+										date={item["data"]["date"]}
+										thumbnail={item["data"]["thumbnail"]}
+										direction="rows"
+										duration={(key + 1) * 300}
+										notify={false}
+									/>
+								</Link>
+							</div>
 						);
 					})}
-					{Loader.LatestPosts && <Skeleton repeat={3} direction="col" />}
 				</div>
 			</section>
 			<div className="devider" />
@@ -328,7 +362,7 @@ const Home: React.FC = () => {
 				<div className="flex flex-col md:flex-row gap-2 md:gap-5 justify-center">
 					<input
 						type="text"
-						className="border-slate-300 input grow w-full mt-0"
+						className="border-slate-300 input grow w-full mt-0 rounded-lg"
 						placeholder={t("Enter your Email")}
 					/>
 					<button className="btn py-0 px-4" type="submit">

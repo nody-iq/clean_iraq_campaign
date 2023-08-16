@@ -27,13 +27,13 @@ const FeadbackPage: React.FC = () => {
 				<div className="flex flex-col lg:flex-row h-screen">
 					<div className="flex-grow container m-auto flex flex-col justify-center items-center">
 						<form onSubmit={handleSubmit} className="form">
-							<h1 className="h3 md:h2">
+							<h1 className="h3 md:h2 ">
 								{t("Forme Header")} <br />
 								{t("Forme Header-br")}
 							</h1>
 							<p id="p-tag-contactus">
 								{t("Forme p-tag")}
-								<span className="SPAN">support@iraqclean.com</span>
+								<span className="SPAN"> support@iraqclean.com</span>
 							</p>
 							<div className="input-forForme">
 								<label htmlFor="Name">{t("Forme Input-Name")}</label> <br />

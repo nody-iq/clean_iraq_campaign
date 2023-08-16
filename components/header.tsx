@@ -28,7 +28,7 @@ export async function getStaticProps({ locale }) {
 const Header: React.FC = () => {
 	const { t, i18n, ready } = useTranslation();
 
-	if (!ready) return "loading translations...";
+	// if (!ready) return "loading translations...";
 
 	const [Links, setLinks] = React.useState([
 		{
