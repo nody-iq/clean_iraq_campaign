@@ -27,7 +27,7 @@ const FeadbackPage: React.FC = () => {
 				<div className="flex flex-col lg:flex-row h-screen">
 					<div className="flex-grow container m-auto flex flex-col justify-center items-center">
 						<form onSubmit={handleSubmit} className="form">
-							<h1 className="h3 md:h2">
+							<h1 className="h3 md:h2 ">
 								{t("Forme Header")} <br />
 								{t("Forme Header-br")}
 							</h1>

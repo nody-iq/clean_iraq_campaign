@@ -328,7 +328,7 @@ const Home: React.FC = () => {
 				<div className="flex flex-col md:flex-row gap-2 md:gap-5 justify-center">
 					<input
 						type="text"
-						className="border-slate-300 input grow w-full mt-0"
+						className="border-slate-300 input grow w-full mt-0 rounded-lg"
 						placeholder={t("Enter your Email")}
 					/>
 					<button className="btn py-0 px-4" type="submit">
