@@ -41,6 +41,32 @@ const About: React.FC = () => {
 			bg: "bg-secondary",
 		},
 	]);
+	const [story, setStory] = React.useState([
+		{
+			subtitle:
+				"Murtada al-Tamimi, a 29-year-old Iraqi expatriate in Canada, works as a software engineer. He came to Baghdad to spend his vacation and watch the sunset with his mother on the banks of the Tigris River but was shocked by the sight and quantity of waste in the places adjacent to the river.",
+		},
+		{
+			subtitle:
+				"Murtada decided to clean the banks of the river with his own hands, and documented a video on his page on social media, to find wide support, after which a voluntary campaign called 'Clean Ambassadors' would be launched.",
+		},
+		{
+			subtitle:
+				"Mortada said that on the first day, he went alone and cleaned a small area, photographed it and posted it on his Instagram account, and urged others to participate in the cleaning, so his invitation initially received a response from about 20 people, and his mother supported him until the number of participants increased until it reached about 500. person.",
+		},
+		{
+			subtitle:
+				"Mortada mentioned that every Friday was allocated for the volunteers to go out to clean the banks of the river, indicating that this aims to make Baghdad more beautiful and to create environmental awareness to eliminate pollution surrounding the river.",
+		},
+		{
+			subtitle:
+				"After a month of his campaign, Murtada returned to Canada, but his campaign, which he launched, continued in Iraq.",
+		},
+		{
+			subtitle:
+				"The volunteers developed a plan through which they divided the banks of the Tigris into areas so that each part would be cleaned separately, to know the places most in need of cleaning.",
+		},
+	]);
 
 	return (
 		<>
@@ -82,6 +108,20 @@ const About: React.FC = () => {
 						</div>
 					</div>
 				))}
+				<div className="flex flex-col">
+					<h2 className="h1 pt-20 pb-10">{t("Campaign story")}</h2>
+					{story.map((text)=>(
+						<p className="text-[18px] font-medium lg:text-[21px] pb-3">{t(text.subtitle)}</p>
+					))}
+					<iframe className="rounded-[12px] h-[500px]" src="https://www.youtube.com/embed/F50xz-jFFrE" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+					<h2 className="h1 py-10">{t("Campaign Expansion")}</h2>
+					<p className="text-[18px] font-medium lg:text-[21px] pb-3">
+						{t("The campaign launched by Murtada from Baghdad has expanded today to include 15 Iraqi governorates whose youth went out to clean the banks of rivers polluted with waste. The campaign is based on the principle of continuity and sustainability and aims not only for cleaning but also to spread the culture of change and the spirit of cooperation.")}
+					</p>
+					<p className="text-[18px] font-medium lg:text-[21px] pb-3">
+						{t("More than 10000 people are currently participating in the campaign, who collected more than 75,000 bags of waste, with each gathering using 3,000 bags, and everyone feels responsible for the change. Although cleaning the river is a governmental responsibility, the people have an important role in the change to preserve their city and protect it from pollution.")}
+					</p>
+				</div>
 			</main>
 		</>
 	);
