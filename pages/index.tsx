@@ -327,24 +327,23 @@ const Home: React.FC = ({ posts }: Props) => {
 					{t("Recent Posts")}
 				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:justify-center gap-10">
-					{posts.slice(0, 6).map((item, key) => {
+					{posts.slice(0, 3).map((item, key) => {
 						return (
 							<div
 								className={`transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary-500 duration-300`}
 							>
-								<Link href={`./blog/${item["slug"]}`}>
-									<PostCard
-										key={key}
-										title={item["data"]["title"]}
-										author={item["data"]["author"]}
-										excerpt={item["content"]}
-										date={item["data"]["date"]}
-										thumbnail={item["data"]["thumbnail"]}
-										direction="rows"
-										duration={(key + 1) * 300}
-										notify={false}
-									/>
-								</Link>
+								<PostCard
+									key={key}
+									title={item["data"]["title"]}
+									author={item["data"]["author"]}
+									excerpt={item["content"]}
+									date={item["data"]["date"]}
+									thumbnail={item["data"]["thumbnail"]}
+									url={`./blog/${item["slug"]}`}
+									direction="rows"
+									duration={(key + 1) * 300}
+									notify={false}
+								/>
 							</div>
 						);
 					})}
@@ -352,26 +351,80 @@ const Home: React.FC = ({ posts }: Props) => {
 			</section>
 			<div className="devider" />
 			<section className="container mx-auto text-center md:w-fit flex flex-col gap-2">
-				<h2 className="h3 md:h2">{t("Subscribe to our newsletter")}</h2>
-				<p className="body">
-					{t(
-						"Subscribe to learn about the latest events , Initiatives, and updates."
-					)}
-				</p>
+				<div id="mc_embed_shell">
+					<div id="mc_embed_signup">
+						<form
+							action="https://app.us21.list-manage.com/subscribe/post?u=54199cfbda90b1d0c838f971a&amp;id=bf8dfbaaf4&amp;f_id=00ff63e1f0"
+							method="post"
+							id="mc-embedded-subscribe-form"
+							name="mc-embedded-subscribe-form"
+							className="validate"
+							target="_self"
+						>
+							<div className="flex flex-col gap-4" id="mc_embed_signup_scroll">
+								<h2 className="h3 md:h2">{t("Subscribe to our newsletter")}</h2>{" "}
+								<p className="body">
+									{t(
+										"Subscribe to learn about the latest events , Initiatives, and updates."
+									)}
+								</p>
+								<div>
+									<div className="mc-field-group flex flex-col md:flex-row gap-2 md:gap-5 justify-center">
+										<input
+											type="email"
+											name="EMAIL"
+											className="border-slate-300 input grow w-full mt-0 rounded-lg"
+											placeholder={t("Enter your Email")}
+											id="mce-EMAIL"
+											required
+										/>
 
-				<div className="flex flex-col md:flex-row gap-2 md:gap-5 justify-center">
-					<input
-						type="text"
-						className="border-slate-300 input grow w-full mt-0 rounded-lg"
-						placeholder={t("Enter your Email")}
-					/>
-					<button className="btn py-0 px-4" type="submit">
-						{t("Subscribe")}
-					</button>
+										<button className="btn py-0 px-4" type="submit">
+											{t("Subscribe")}
+										</button>
+									</div>
+									<span
+										id="mce-EMAIL-HELPERTEXT"
+										className="helper_text"
+									></span>
+									<div id="mce-responses" className="clear foot">
+										<div
+											className="response hidden"
+											id="mce-error-response"
+										></div>
+										<div
+											className="response hidden"
+											id="mce-success-response"
+										></div>
+									</div>
+									<div
+										aria-hidden="true"
+										className="hidden absolute left-[-5000px]"
+									>
+										/* real people should not fill this in and expect good
+										things - do not remove this or risk form bot signups */
+										<input
+											type="text"
+											name="b_54199cfbda90b1d0c838f971a_bf8dfbaaf4"
+											value=""
+										/>
+									</div>
+								</div>
+								{/* <div className="optionalParent">
+									<div className="clear foot">
+										<input
+											type="submit"
+											name="subscribe"
+											id="mc-embedded-subscribe"
+											className="button"
+											value="Subscribe"
+										/>
+									</div>
+								</div> */}
+							</div>
+						</form>
+					</div>
 				</div>
-				<p className="text-center text-[#667085]">
-					{t("We care about your data in our privacy policy")}
-				</p>
 			</section>
 			<div className="devider" />
 		</main>

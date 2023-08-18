@@ -24,7 +24,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 	}, []);
 
 	return (
-		<div className="">
+		<div>
 			<NextNProgress color="#E4A954" height={6} />
 
 			<Head>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Table } from "flowbite-react";
 import { useTranslation } from "next-i18next";
 import CountUp from "react-countup";
+import { useRouter } from "next/router";
 
 interface props {
 	Date: string;
@@ -34,6 +35,7 @@ const InitiativeCard: React.FC<props> = ({
 	notify,
 }) => {
 	const { t } = useTranslation();
+	const router = useRouter();
 
 	return (
 		<article

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Table } from "flowbite-react";
 import { useTranslation } from "next-i18next";
 import CountUp from "react-countup";
+import { useRouter } from "next/router";
 
 interface props {
 	Province: string;
@@ -19,7 +20,7 @@ const EventCard: React.FC<props> = ({
 	photo,
 }) => {
 	const { t } = useTranslation();
-
+	const router = useRouter();
 	return (
 		<div className="group rounded-[12px] relative drop-shadow-[0px_0px_20px_rgba(0,0,0,0.3)] w-full h-[491px]">
 			<Image
@@ -46,7 +47,7 @@ const EventCard: React.FC<props> = ({
 				<h3 className="z-10 w-fit py-3 px-2 mx-2 text-[13px] font-bold bg-white rounded-[12px] text-secondary bg-opacity-70 md:text-[20px] lg:text-[24px]">
 					{Location_Description}
 				</h3>
-				<div className="absolute inset-y-full h-full w-full transition duration-700 ease-in-out group-hover:-translate-y-full bg-black/[0.5] z-30 text-white flex flex-col justify-center">
+				<div className="px-2 absolute inset-y-full h-full w-full transition duration-700 ease-in-out group-hover:-translate-y-full bg-black/[0.5] z-30 text-white flex flex-col justify-center">
 					<div className="flex p-4 h3">
 						<h3 className="flex-grow">{t("Number of trash bags")}</h3>
 						<h3 className="">{Number_of_Trash_Bags}</h3>
