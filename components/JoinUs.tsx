@@ -1,9 +1,11 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { Button, Modal } from "flowbite-react";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -13,109 +15,209 @@ export async function getStaticProps({ locale }) {
 	};
 }
 
-type Inputs = {
-	example: string;
-	exampleRequired: string;
-};
-
 const JoinUs: React.FC = () => {
+	const [openModal, setOpenModal] = React.useState(false);
 	const { t } = useTranslation();
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm<Inputs>();
-	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+	const router = useRouter();
+	const initialValues = {
+		name: "",
+		age: "",
+		phone: "",
+		telegram: "",
+		gender: "",
+		occupation: "",
+		province: router.query.event,
+		employeeOrganization: "",
+		requiresTransport: false,
+	};
 
+	const validationSchema = Yup.object({
+		name: Yup.string().required(t("field is required")),
+		age: Yup.string().required(t("field is required")),
+		phone: Yup.string()
+			.matches(/^\d+$/, t("Phone number must only contain digits"))
+			.min(10, t("Phone number must be at least 10 digits"))
+			.max(15, t("Phone number can be at most 15 digits"))
+			.required(t("Phone number is required")),
+		telegram: Yup.string().required(t("field is required")),
+		gender: Yup.string().required(t("field is required")),
+	});
+
+	const handleSubmit = async (e: any) => {
+		try {
+			const response = await axios.post(
+				"https://airtable-serverless-functions.mujzuh.workers.dev/submit",
+				e
+			);
+			console.log("Response:", response.data);
+			setOpenModal(true);
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	};
 	return (
-		<div className="container m-auto">
-			<form className="form" onSubmit={handleSubmit(onSubmit)}>
-				{/* <input defaultValue="test" {...register("example")} />
-
-				<input
-					{...register("exampleRequired", { required: true })}
-				/>
-				{errors.exampleRequired && <span>This field is required</span>} */}
-
-				<h1 className="h3 md:h2">{t("Join Us")}</h1>
-
-				<div className="flex flex-col gap-x-3 md:flex-row">
-					<div className="flex-grow input-forForme">
-						<label className="body-bold" htmlFor="Name">
-							{t("Forme Input-Name")}
-						</label>{" "}
-						<br />
-						<input
-							type="text"
-							name="Name"
-							placeholder={t("Forme PlaceHolder-Name")}
-						/>
-					</div>
-					<div className="flex-grow input-forForme">
-						<label className="body-bold" htmlFor="Name">
-							{t("Age")}
-						</label>{" "}
-						<br />
-						<input type="number" name="Name" placeholder={t("Age")} />
-					</div>
-				</div>
-				<div className="input-forForme">
-					<label className="body-bold" htmlFor="Email">
-						{t("Phone Number")}
-					</label>{" "}
-					<br />
-					<input
-						type="number"
-						name={t("Forme PlaceHolder-Email")}
-						placeholder={t("Phone Number")}
-					/>
-				</div>
-				<div className="input-forForme mt-7">
-					<label className="body-bold" htmlFor="Email">
-						{t("Telegram ID")}
-					</label>{" "}
-					<br />
-					<input type="text" name="phone" placeholder={t("Telegram ID")} />
-				</div>
-				<div className="input-forForme mt-7">
-					<div className="flex justify-between justify-items-center items-center">
-						<span className="body-bold">{t("Gender")}</span>
-						<div className="ml-4 rtl:mr-4 flex justify-items-center items-center">
-							<input className="w-5 h-5 " type="radio"></input>
-							<label className="text-[24px] font-light ml-2 rtl:mr-2">
-								{t("Male")}
-							</label>
+		<div className="">
+			<Formik
+				initialValues={initialValues}
+				validationSchema={validationSchema}
+				onSubmit={handleSubmit}
+			>
+				{({ errors, touched, values }) => (
+					<Form className="form w-full">
+						<h1 className="h3 md:h2">{t("Join Us")}</h1>
+						<div className="flex flex-col gap-x-3 md:flex-row">
+							<div className="flex-grow input-forForme">
+								<label className="body-bold" htmlFor="Name">
+									{t("Forme Input-Name")}
+								</label>
+								<br />
+								<Field
+									type="text"
+									id="name"
+									name="name"
+									placeholder={t("Forme PlaceHolder-Name")}
+									className={`${
+										errors.name && touched.name && "border-rose-800"
+									}`}
+								/>
+								{errors.name && touched.name && (
+									<ErrorMessage
+										name="name"
+										render={(msg) => <div className="text-rose-800">{msg}</div>}
+									/>
+								)}
+							</div>
+							<div className="flex-grow input-forForme">
+								<label className="body-bold" htmlFor="age">
+									{t("Age")}
+								</label>
+								<br />
+								<Field
+									type="number"
+									id="age"
+									name="age"
+									placeholder={t("Age")}
+									className={`${
+										errors.age && touched.age && "border-rose-800"
+									}`}
+								/>
+								{errors.age && touched.age && (
+									<ErrorMessage
+										name="age"
+										render={(msg) => <div className="text-rose-800">{msg}</div>}
+									/>
+								)}
+							</div>
 						</div>
-						<div className="ml-4 rtl:mr-4 flex justify-items-center items-center">
-							<input className="w-5 h-5" type="radio"></input>
-							<label className="text-[24px] font-light ml-2 rtl:mr-2">
-								{t("Female")}
+						<div className="input-forForme mt-7">
+							<label className="body-bold" htmlFor="phone">
+								{t("Phone Number")}
 							</label>
+							<br />
+							<Field
+								type="number"
+								id="phone"
+								name="phone"
+								placeholder={t("Phone Number")}
+								className={`${
+									errors.phone && touched.phone && "border-rose-800"
+								}`}
+							/>
+							{errors.phone && touched.phone && (
+								<ErrorMessage
+									name="phone"
+									render={(msg) => <div className="text-rose-800">{msg}</div>}
+								/>
+							)}
 						</div>
+						<div className="input-forForme mt-7">
+							<label className="body-bold" htmlFor="Email">
+								{t("Telegram ID")}
+							</label>
+							<br />
+							<Field
+								type="text"
+								id="telegram"
+								name="telegram"
+								placeholder={t("Telegram ID")}
+								className={`${
+									errors.telegram && touched.telegram && "border-rose-800"
+								}`}
+							/>
+							{errors.telegram && touched.telegram && (
+								<ErrorMessage
+									name="telegram"
+									render={(msg) => <div className="text-rose-800">{msg}</div>}
+								/>
+							)}
+						</div>
+						<div className="input-forForme mt-7">
+							<div className="flex justify-between justify-items-center items-center">
+								<span className="body-bold">{t("Gender")}</span>
+								<div className="ml-4 rtl:mr-4 flex justify-items-center items-center">
+									<Field
+										type="radio"
+										id="gender"
+										name="gender"
+										value="male"
+										className="w-5 h-5"
+									/>
+									<label className="text-[24px] font-light ml-2 rtl:mr-2">
+										{t("Male")}
+									</label>
+								</div>
+								<div className="ml-4 rtl:mr-4 flex justify-items-center items-center">
+									<Field
+										type="radio"
+										id="gender"
+										name="gender"
+										value="female"
+										className="w-5 h-5"
+									/>
+									<label className="text-[24px] font-light ml-2 rtl:mr-2">
+										{t("Female")}
+									</label>
+								</div>
+							</div>
+							{errors.gender && touched.gender && (
+								<ErrorMessage
+									name="gender"
+									render={(msg) => <div className="text-rose-800">{msg}</div>}
+								/>
+							)}
+						</div>
+						<div className="input-forForme mt-7">
+							<label className="body-bold" htmlFor="occupation">
+								{t("Occupation (Optional)")}
+							</label>
+							<Field
+								type="text"
+								id="occupation"
+								name="occupation"
+								placeholder={t("Occupation (Optional)")}
+							/>
+						</div>
+						<button type="submit" className="submitBTN mt-7">
+							{t("Forme Submit btn")}
+						</button>
+					</Form>
+				)}
+			</Formik>
+			<Modal show={openModal === true} onClose={() => setOpenModal(false)}>
+				<Modal.Header>{t("Registration Successful")}</Modal.Header>
+				<Modal.Body>
+					<div className="space-y-6">
+						<p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							{t(
+								"Thank you for registering for our campaign. You are now a part of our movement to make a difference. Stay tuned for updates and events!"
+							)}
+						</p>
 					</div>
-				</div>
-				<div className="input-forForme mt-7">
-					<label className="body-bold" htmlFor="Email">
-						{t("Occupation (Optional)")}
-					</label>
-					<input
-						type="text"
-						name="phone"
-						placeholder={t("Occupation (Optional)")}
-					/>
-				</div>
-				<div className="input-forForme mt-7">
-					<label className="body-bold" htmlFor="Email">
-						{t("Governorate")}
-					</label>{" "}
-					<br />
-					<input type="text" name="phone" placeholder={t("Governorate")} />
-				</div>
-				<button type="submit" className="submitBTN mt-7">
-					{t("Forme Submit btn")}
-				</button>
-			</form>
+				</Modal.Body>
+				<Modal.Footer>
+					<Button onClick={() => setOpenModal(false)}>{t("Close")}</Button>
+				</Modal.Footer>
+			</Modal>
 		</div>
 	);
 };

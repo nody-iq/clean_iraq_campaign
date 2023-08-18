@@ -7,6 +7,7 @@ import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import PostCard from "../../components/postCard";
 
 export async function getStaticPaths() {
 	const blogPath = path.join(process.cwd(), "pages/blog/posts");
@@ -110,33 +111,19 @@ const BlogPost = ({ content, postData, posts }) => {
 						{t("Related articles")}
 					</h2>
 					<div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
-						{posts.slice(0, 3).map((post) => (
-							<article className="max-w-xs">
-								<div className="relative w-full h-44 rounded mb-2">
-									<a href="#">
-										<Image
-											className="rounded-md"
-											src={post.data.thumbnail}
-											alt="thumbnail"
-											fill
-											objectFit="cover"
-										/>
-									</a>
-								</div>
-
-								<h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-									<a href="#">{post.data.title}</a>
-								</h2>
-								<p className="mb-4 font-light text-gray-500 dark:text-gray-400 line-clamp-2">
-									{post.content}
-								</p>
-								<Link
-									className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline"
-									href={post.slug}
-								>
-									{t("Read more")}
-								</Link>
-							</article>
+						{posts.slice(0, 3).map((item, key) => (
+							<PostCard
+								key={key}
+								title={item["data"]["title"]}
+								author={item["data"]["author"]}
+								excerpt={item["content"]}
+								date={item["data"]["date"]}
+								thumbnail={item["data"]["thumbnail"]}
+								url={`/blog/${item["slug"]}`}
+								direction="rows"
+								duration={(key + 1) * 300}
+								notify={false}
+							/>
 						))}
 					</div>
 				</div>

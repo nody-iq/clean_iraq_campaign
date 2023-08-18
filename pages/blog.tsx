@@ -7,7 +7,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
-import Link from "next/link";
 
 type PostFrontmatter = {
 	title: string;
@@ -62,19 +61,18 @@ const Blog: React.FC = ({ posts }: Props) => {
 									key == 0 ? "md:row-span-2" : ""
 								} transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary-500 duration-300`}
 							>
-								<Link href={`./blog/${item["slug"]}`}>
-									<PostCard
-										key={key}
-										title={item["data"]["title"]}
-										author={item["data"]["author"]}
-										excerpt={item["content"]}
-										date={item["data"]["date"]}
-										thumbnail={item["data"]["thumbnail"]}
-										direction={key == 0 ? "rows" : "cols"}
-										duration={(key + 1) * 300}
-										notify={false}
-									/>
-								</Link>
+								<PostCard
+									key={key}
+									title={item["data"]["title"]}
+									author={item["data"]["author"]}
+									excerpt={item["content"]}
+									date={item["data"]["date"]}
+									thumbnail={item["data"]["thumbnail"]}
+									url={`./blog/${item["slug"]}`}
+									direction={key == 0 ? "rows" : "cols"}
+									duration={(key + 1) * 300}
+									notify={false}
+								/>
 							</div>
 						);
 					})}
@@ -92,19 +90,18 @@ const Blog: React.FC = ({ posts }: Props) => {
 									key == 0 ? "md:row-span-2" : ""
 								} transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-primary-500 duration-300`}
 							>
-								<Link href={`./blog/${item["slug"]}`}>
-									<PostCard
-										key={key}
-										title={item["data"]["title"]}
-										author={item["data"]["author"]}
-										excerpt={item["content"]}
-										date={item["data"]["date"]}
-										thumbnail={item["data"]["thumbnail"]}
-										direction="rows"
-										duration={(key + 1) * 300}
-										notify={false}
-									/>
-								</Link>
+								<PostCard
+									key={key}
+									title={item["data"]["title"]}
+									author={item["data"]["author"]}
+									excerpt={item["content"]}
+									date={item["data"]["date"]}
+									thumbnail={item["data"]["thumbnail"]}
+									url={`./blog/${item["slug"]}`}
+									direction="rows"
+									duration={(key + 1) * 300}
+									notify={false}
+								/>
 							</div>
 						);
 					})}
