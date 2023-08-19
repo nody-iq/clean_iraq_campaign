@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import JoinUs from "../../components/JoinUs";
+import axios from "axios";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -12,13 +13,20 @@ export async function getStaticProps({ locale }) {
 }
 
 export async function getStaticPaths() {
+	const response = await axios.get(
+		"https://airtable-serverless-functions.mujzuh.workers.dev/provinces"
+	);
+	const provinces = response.data.provinces;
+	const paths = provinces.map((item) => ({
+		params: { slug: item.name },
+	}));
 	return {
-		paths: [],
+		paths,
 		fallback: false,
 	};
 }
 
-const DynamicPage: React.FC = () => {
+const DynamicPage = () => {
 	return (
 		<>
 			<main className="container mx-auto">

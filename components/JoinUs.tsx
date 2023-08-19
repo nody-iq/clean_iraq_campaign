@@ -7,13 +7,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { Button, Modal } from "flowbite-react";
 
-export async function getStaticPaths() {
-	return {
-		paths: [],
-		fallback: false,
-	};
-}
-
 export async function getStaticProps({ locale }) {
 	return {
 		props: {
@@ -33,11 +26,10 @@ const JoinUs: React.FC = () => {
 		telegram: "",
 		gender: "",
 		occupation: "",
-		province: router.query.event,
+		province: router.query.slug,
 		employeeOrganization: "",
 		requiresTransport: false,
 	};
-
 	const validationSchema = Yup.object({
 		name: Yup.string().required(t("field is required")),
 		age: Yup.string().required(t("field is required")),

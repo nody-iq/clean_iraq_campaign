@@ -61,7 +61,7 @@ const BlogPost = ({ content, postData, posts }) => {
 									<img
 										className="w-16 h-16 rounded-full"
 										src="https://secure.webtoolhub.com/static/resources/icons/set112/261419af.png"
-										alt="Jese Leos"
+										alt="img"
 									/>
 									<div>
 										<a

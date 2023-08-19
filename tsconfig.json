@@ -30,7 +30,7 @@
     "**/*.tsx",
     "pages/_app.js",
     ".next/types/**/*.ts"
-  ],
+, "pages/join-event/[slug].tsx"  ],
   "exclude": [
     "node_modules"
   ]
