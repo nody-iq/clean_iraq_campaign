@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
-import { Button, Modal } from "flowbite-react";
+import { Button, Modal, Spinner } from "flowbite-react";
 import axios from "axios";
 
 export async function getStaticProps({ locale }) {
@@ -18,33 +18,7 @@ export async function getStaticProps({ locale }) {
 const FeadbackPage: React.FC = () => {
 	const { t } = useTranslation();
 	const [openModal, setOpenModal] = React.useState(false);
-
-	const initialValues = {
-		name: "",
-		email: "",
-		msg: "",
-	};
-
-	const validationSchema = Yup.object({
-		name: Yup.string().required(t("field is required")),
-		email: Yup.string().required(t("field is required")),
-		msg: Yup.string().required(t("field is required")),
-	});
-
-	const handleSubmit = async (e: any) => {
-		const formData = new FormData();
-		formData.append("entry.1198253284", e.name);
-		formData.append("entry.1358856742", e.email);
-		formData.append("entry.208176542", e.msg);
-
-		await axios
-			.post(
-				"https://docs.google.com/forms/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse",
-				formData
-			)
-			.then(() => setOpenModal(true))
-			.catch(() => setOpenModal(true));
-	};
+	const [Loader, setLoader] = React.useState(false);
 
 	return (
 		<>
@@ -52,9 +26,39 @@ const FeadbackPage: React.FC = () => {
 				<div className="flex flex-col lg:flex-row h-screen">
 					<div className="flex-grow container m-auto flex flex-col justify-center items-center">
 						<Formik
-							initialValues={initialValues}
-							validationSchema={validationSchema}
-							onSubmit={handleSubmit}
+							initialValues={{
+								name: "",
+								email: "",
+								msg: "",
+							}}
+							validationSchema={Yup.object({
+								name: Yup.string().required(t("field is required")),
+								email: Yup.string().required(t("field is required")),
+								msg: Yup.string().required(t("field is required")),
+							})}
+							onSubmit={async (values, action) => {
+								setLoader(true);
+								const formData = new FormData();
+								formData.append("entry.1198253284", values.name);
+								formData.append("entry.1358856742", values.email);
+								formData.append("entry.208176542", values.msg);
+
+								await axios
+									.post(
+										"https://docs.google.com/forms/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse",
+										formData
+									)
+									.then(() => {
+										setOpenModal(true);
+										setLoader(false);
+										action.resetForm();
+									})
+									.catch(() => {
+										setOpenModal(true);
+										setLoader(false);
+										action.resetForm();
+									});
+							}}
 						>
 							{({ errors, touched, values }) => (
 								<Form className="form w-full">
@@ -131,7 +135,14 @@ const FeadbackPage: React.FC = () => {
 										)}
 									</div>
 									<button type="submit" className="submitBTN">
-										{t("Forme Submit btn")}
+										{Loader ? (
+											<Spinner
+												aria-label="Success spinner example"
+												color="success"
+											/>
+										) : (
+											<span>{t("Forme Submit btn")}</span>
+										)}
 									</button>
 								</Form>
 							)}

@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { Button, Modal } from "flowbite-react";
+import { Button, Modal, Spinner } from "flowbite-react";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -17,49 +17,53 @@ export async function getStaticProps({ locale }) {
 
 const JoinUs: React.FC = () => {
 	const [openModal, setOpenModal] = React.useState(false);
+	const [Loader, setLoader] = React.useState(false);
 	const { t } = useTranslation();
 	const router = useRouter();
-	const initialValues = {
-		name: "",
-		age: "",
-		phone: "",
-		telegram: "",
-		gender: "",
-		occupation: "",
-		province: router.query.slug,
-		employeeOrganization: "",
-		requiresTransport: false,
-	};
-	const validationSchema = Yup.object({
-		name: Yup.string().required(t("field is required")),
-		age: Yup.string().required(t("field is required")),
-		phone: Yup.string()
-			.matches(/^\d+$/, t("Phone number must only contain digits"))
-			.min(10, t("Phone number must be at least 10 digits"))
-			.max(15, t("Phone number can be at most 15 digits"))
-			.required(t("Phone number is required")),
-		telegram: Yup.string().required(t("field is required")),
-		gender: Yup.string().required(t("field is required")),
-	});
 
-	const handleSubmit = async (e: any) => {
-		try {
-			const response = await axios.post(
-				"https://airtable-serverless-functions.mujzuh.workers.dev/submit",
-				e
-			);
-			console.log("Response:", response.data);
-			setOpenModal(true);
-		} catch (error) {
-			console.error("Error:", error);
-		}
-	};
 	return (
 		<div className="">
 			<Formik
-				initialValues={initialValues}
-				validationSchema={validationSchema}
-				onSubmit={handleSubmit}
+				initialValues={{
+					name: "",
+					age: "",
+					phone: "",
+					telegram: "",
+					gender: "",
+					occupation: "",
+					province: router.query.slug,
+					employeeOrganization: "",
+					requiresTransport: false,
+				}}
+				validationSchema={Yup.object({
+					name: Yup.string().required(t("field is required")),
+					age: Yup.string().required(t("field is required")),
+					phone: Yup.string()
+						.matches(/^\d+$/, t("Phone number must only contain digits"))
+						.min(10, t("Phone number must be at least 10 digits"))
+						.max(15, t("Phone number can be at most 15 digits"))
+						.required(t("Phone number is required")),
+					telegram: Yup.string().required(t("field is required")),
+					gender: Yup.string().required(t("field is required")),
+				})}
+				onSubmit={async (values, action) => {
+					setLoader(true);
+					await axios
+						.post(
+							"https://docs.google.com/forms/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse",
+							values
+						)
+						.then(() => {
+							setLoader(false);
+							action.resetForm();
+							setOpenModal(true);
+						})
+						.catch(() => {
+							setOpenModal(true);
+							setLoader(false);
+							action.resetForm();
+						});
+				}}
 			>
 				{({ errors, touched, values }) => (
 					<Form className="form w-full">
@@ -197,7 +201,11 @@ const JoinUs: React.FC = () => {
 							/>
 						</div>
 						<button type="submit" className="submitBTN mt-7">
-							{t("Forme Submit btn")}
+							{Loader ? (
+								<Spinner aria-label="Success spinner example" color="success" />
+							) : (
+								<span>{t("Forme Submit btn")}</span>
+							)}
 						</button>
 					</Form>
 				)}
