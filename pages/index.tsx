@@ -291,35 +291,95 @@ const Home: React.FC = ({ posts }: Props) => {
 				<p className="body mb-10">
 					{t("Meet Our Amazing Hygiene Ambassadors Team Members In Iraq")}.
 				</p>
-				<div className="flex flex-col items-center md:flex-row gap-10 justify-center">
-					{Team.map((item, key) => {
-						return (
-							<div
-								key={key}
-								data-aos="fade-in"
-								data-aos-duration={2000 - key * 300}
-								className="shadow-xl bg-gradient-to-t from-black via-transparent rounded-xl w-[285px] h-[411px] relative overflow-hidden lg:h-[511px]"
-							>
-								<Image
-									className="-z-10"
-									src={item.img}
-									alt="team"
-									fill
-									objectFit="cover"
-									objectPosition="center center"
-								/>
-								<div className="flex flex-col justify-end h-full p-5">
-									<h2 className="body-bold text-white text-center">
-										{item.name}
-									</h2>
-									<h2 className="body text-[#D4D4D8] text-center">
-										{item.role}
-									</h2>
-								</div>
-							</div>
-						);
-					})}
-				</div>
+		 <div className="flex gap-10 mx-auto justify-center flex-wrap">
+          <div className="bg-white max-w-[300px]  rounded-[25px] shadow-2xl flex flex-col">
+            <div className="bg-primary py-8 rounded-[25px_25px_0px_25px] flex items-center justify-center cardTopSection">
+              <img
+                className=" w-[120px] h-[120px] rounded-[50%] border-2 border-solid border-[white] p-1 object-cover"
+                src="/images/teamMember1.jpg"
+              />
+            </div>
+            <div className="text-center py-6 px-3">
+              <h1>Murtadha Al-Tameemi</h1>
+              <p className="py-5 text-gray-500">
+			  Software engineer, owner of the idea of cleanliness ambassadors and campaign manager
+
+              </p>
+			  <div className="flex justify-center self-end">
+              <button className="font-bold text-green-800 py-2 px-6 border-2 rounded-[0px_15px_0px_15px] border-[#548B68]">
+                <a href="https://www.instagram.com/the.murt/" target="_blanck">
+                  Instagram
+                </a>
+              </button>
+			  </div>
+            </div>
+          </div>
+          <div className="bg-white max-w-[300px]  rounded-[25px] shadow-2xl  flex flex-col" >
+            <div className="bg-primary py-8 rounded-[25px_25px_0px_25px] flex items-center justify-center cardTopSection">
+              <img
+                className=" w-[120px] h-[120px] rounded-[50%] border-2 border-solid border-[white] p-1 object-cover"
+                src="/images/teamMember2.jpg"
+              />
+            </div>
+            <div className="text-center py-6  px-3 ">
+              <h1>Mohamed Khaled</h1>
+              <p className="py-5 text-gray-500">
+				mechanical engineer <br/> Responsible for advertising campaigns  <br/>.
+ 			  </p>
+			  <div className="flex justify-center self-end">
+              <button className="font-bold text-green-800 py-2 px-6 border-2 rounded-[0px_15px_0px_15px] border-[#548B68] ">
+                <a href="https://www.instagram.com/abodora89/" target="_blanck">
+                  Instagram
+                </a>
+              </button>
+			  </div>
+            </div>
+          </div>
+          <div className="bg-white max-w-[300px]  rounded-[25px] shadow-2xl flex flex-col ">
+            <div className="bg-primary py-8 rounded-[25px_25px_0px_25px] flex items-center justify-center cardTopSection">
+              <img
+                className=" w-[120px] h-[120px] rounded-[50%] border-2 border-solid border-[white] p-1 object-cover"
+                src="/images/teamMember3.jpg"
+              />
+            </div>
+            <div className="text-center py-6  px-3">
+              <h1>Saif A Kareem</h1>
+              <p className="py-5 text-gray-500">
+			  UI / UX designer Responsible for external relations and social media accounts for the campaign
+              </p>
+			  <div className="flex justify-center self-end">
+              <button className="font-bold text-green-800 py-2 px-6 border-2 rounded-[0px_15px_0px_15px] border-[#548B68]">
+                <a href="https://www.instagram.com/saif_a_kareem/" target="_blanck">
+                  Instagram
+                </a>
+              </button>
+			  </div>
+            </div>
+          </div>
+		  <div className="bg-white max-w-[300px]  rounded-[25px] shadow-2xl flex flex-col ">
+            <div className="bg-primary py-8 rounded-[25px_25px_0px_25px] flex items-center justify-center cardTopSection">
+              <img
+                className=" w-[120px] h-[120px] rounded-[50%] border-2 border-solid border-[white] p-1 object-cover"
+                src="/images/teamMember4.jpg"
+              />
+            </div>
+            <div className="text-center py-6 px-3">
+              <h1>Hassan</h1>
+              <p className="py-5 text-gray-500">
+			  Aeronautical Engineering
+              Responsible for collecting security approvals and permits and managing the campaign
+              </p>
+			  <div className="flex justify-center self-end">
+
+              <button className="font-bold text-green-800 py-2 px-6 border-2 rounded-[0px_15px_0px_15px] border-[#548B68]">
+                <a href="https://www.instagram.com/the.murt/" target="_blanck">
+                  Instagram
+                </a>
+              </button>
+			  </div>
+            </div>
+          </div>
+        </div>
 			</section>
 			<div className="devider" />
 			<section className="container mx-auto mb-2">
