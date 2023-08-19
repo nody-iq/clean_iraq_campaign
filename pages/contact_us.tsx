@@ -4,8 +4,8 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { Button, Modal } from "flowbite-react";
+import axios from "axios";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -38,14 +38,12 @@ const FeadbackPage: React.FC = () => {
 			formData.append("entry.1358856742", e.email);
 			formData.append("entry.208176542", e.msg);
 
-			const response = await axios.post(
-				"https://docs.google.com/forms/u/0/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse",
-				formData
+			const response = await axios.get(
+				"https://docs.google.com/forms/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse?entry.1198253284=pp_url&entry.1358856742=Name&entry.208176542=name@example.com"
 			);
-			// console.log("Response:", response.data);
-			setOpenModal(true);
 		} catch (error) {
-			// console.error("Error:", error);
+			console.error("Error:", error);
+			// setOpenModal(true);
 		}
 	};
 
