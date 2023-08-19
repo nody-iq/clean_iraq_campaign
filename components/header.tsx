@@ -28,8 +28,6 @@ export async function getStaticProps({ locale }) {
 const Header: React.FC = () => {
 	const { t, i18n, ready } = useTranslation();
 
-	// if (!ready) return "loading translations...";
-
 	const [Links, setLinks] = React.useState([
 		{
 			name: "Home",
@@ -141,6 +139,7 @@ const Header: React.FC = () => {
 								<Link
 									className="font-bold md:text-[20px] duration-500"
 									href={link.link}
+									onClick={() => setOpen(!open)}
 								>
 									{t(link.name)}
 								</Link>
