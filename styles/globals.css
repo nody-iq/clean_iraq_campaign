@@ -113,6 +113,9 @@
       position: relative;
       top: -80px;
     }
+    .classForCards {
+      @apply max-w-[300px];
+    }
   }
 
   .SPAN {
