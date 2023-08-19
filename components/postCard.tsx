@@ -29,12 +29,8 @@ const PostCard: React.FC<props> = ({
 	const { t } = useTranslation();
 
 	return (
-		<article
-			data-aos="fade-up"
-			data-aos-duration={duration ? duration : 1000}
-			className={`grid md:grid-${direction}-2 gap-6`}
-		>
-			<div className={`w-full h-[200px] relative`}>
+		<article className={`grid grid-cols-1 md:grid-${direction}-2 gap-6`}>
+			<div className="w-full h-[200px] relative">
 				<Image
 					className="rounded-lg"
 					src={thumbnail}

@@ -111,6 +111,7 @@ const Home: React.FC = ({ posts }: Props) => {
 		LatestInitiatives: true,
 		LatestPosts: true,
 	});
+
 	useEffect(() => {
 		setLoader({
 			LatestInitiatives: true,
@@ -139,11 +140,11 @@ const Home: React.FC = ({ posts }: Props) => {
 			<section className="flex flex-row items-center justify-center md:bg-secondary/[0.5] md:items-stretch md:grid md:grid-cols-2 lg:bg-inherit relative">
 				<div className="bg-black/[0.5] h-full w-full absolute md:bg-secondary/[0] md:flex flex-col justify-center md:ps-8 md:relative">
 					<div
-						data-aos="fade-right"
+						data-aos="fade-top"
 						data-aos-duration="1000"
 						className="lg:w-[64%] text-center xs:px-2 text-white mt-[12rem] md:mt-0 md:text-left md:text-black flex flex-col gap-2"
 					>
-						<h1 className="fade-right h3 md:h2 md:text-left rtl:md:text-right lg:h1">
+						<h1 className="fade-top h3 md:h2 md:text-left rtl:md:text-right lg:h1">
 							{t("CLEANLINESS AMBASSADORS IN IRAQ")}
 						</h1>
 						<h3 className="h3 p text-[1rem] md:text-[1.4rem]  md:text-left rtl:md:text-right">
@@ -163,7 +164,7 @@ const Home: React.FC = ({ posts }: Props) => {
 					</div>
 
 					<div
-						data-aos="fade-right"
+						data-aos="fade-top"
 						data-aos-duration="2000"
 						className="hidden absolute left-0 rtl:right-0 bottom-0 lg:block -z-10"
 					>
@@ -177,9 +178,9 @@ const Home: React.FC = ({ posts }: Props) => {
 					</div>
 				</div>
 				<div
-					data-aos="fade-left"
+					data-aos="fade-top"
 					data-aos-duration="1000"
-					className="fade-left md:inherit justify-self-center relative md:justify-self-end md:me-8 -z-30 md:z-auto"
+					className="fade-top md:inherit justify-self-center relative md:justify-self-end md:me-8 -z-30 md:z-auto"
 				>
 					<Image
 						className="opacity-75 md:opacity-100"
@@ -217,7 +218,7 @@ const Home: React.FC = ({ posts }: Props) => {
 				/>
 
 				<div
-					data-aos="fade-up"
+					data-aos="fade-top"
 					data-aos-duration="1000"
 					className="grid grid-flow-row justify-items-center justify-center gap-y-20 py-28 md:grid-cols-2 lg:grid-cols-4"
 				>
@@ -326,7 +327,7 @@ const Home: React.FC = ({ posts }: Props) => {
 				<h2 className="h2 mb-8 text-center lg:text-left rtl:lg:text-right">
 					{t("Recent Posts")}
 				</h2>
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:justify-center gap-10">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10">
 					{posts.slice(0, 3).map((item, key) => {
 						return (
 							<div
@@ -401,8 +402,6 @@ const Home: React.FC = ({ posts }: Props) => {
 										aria-hidden="true"
 										className="hidden absolute left-[-5000px]"
 									>
-										/* real people should not fill this in and expect good
-										things - do not remove this or risk form bot signups */
 										<input
 											type="text"
 											name="b_54199cfbda90b1d0c838f971a_bf8dfbaaf4"
@@ -410,17 +409,6 @@ const Home: React.FC = ({ posts }: Props) => {
 										/>
 									</div>
 								</div>
-								{/* <div className="optionalParent">
-									<div className="clear foot">
-										<input
-											type="submit"
-											name="subscribe"
-											id="mc-embedded-subscribe"
-											className="button"
-											value="Subscribe"
-										/>
-									</div>
-								</div> */}
 							</div>
 						</form>
 					</div>

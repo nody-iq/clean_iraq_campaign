@@ -11,6 +11,7 @@ import {
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import axios from "axios";
+import Link from "next/link";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -50,12 +51,12 @@ const Footer: React.FC = () => {
 		},
 	]);
 	const [Resources, setResources] = React.useState([
-		{ name: "Blog", link: "/Blog" },
+		{ name: "Blog", link: "/blog" },
 		{ name: "Newsletter", link: "/" },
-		{ name: "Past Events", link: "/Events" },
-		{ name: "Up Comming Events", link: "/Events" },
-		{ name: "Initiatives", link: "/Initiatives" },
-		{ name: "Support", link: "/Contact Us" },
+		{ name: "Past Events", link: "/events" },
+		{ name: "Up Comming Events", link: "/events" },
+		{ name: "Initiatives", link: "/initiatives" },
+		{ name: "Support", link: "/contact_us" },
 	]);
 	const [Posts, setPosts] = React.useState([]);
 
@@ -113,12 +114,12 @@ const Footer: React.FC = () => {
 					<ul className="">
 						{Resources.map((link) => (
 							<li key={link.name} className="py-2">
-								<a
-									href={link.link}
+								<Link
 									className="text-[#EAECF0] font-medium text-[16px]"
+									href={link.link}
 								>
 									{t(link.name)}
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>
