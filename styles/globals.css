@@ -232,3 +232,21 @@
 .input-forForme input {
   @apply rounded-lg;
 }
+/* //// this down here is for the team Cards section ////*/
+.cardTopSection {
+  position: relative;
+}
+.cardTopSection::after,
+.cardTopSection::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: #548b68;
+}
+.cardTopSection::after {
+  border-radius: 0 25px 0 0;
+  background-color: white;
+}
