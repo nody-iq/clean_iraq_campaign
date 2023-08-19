@@ -19,20 +19,20 @@ const Initiatives: React.FC = () => {
 	// this is a fack API 👇👇👇
 	const slides = [
 		{
-			url: "https://thepeninsulaqatar.com/get/maximage/20210203_1612330514-271882.JPG?1635250003",
+			url: "/images/initiatves_n1.jpg",
 		},
 		{
-			url: "https://dohanews.co/wp-content/uploads/2020/12/campaign-clean.jpeg",
+			url: "/images/initiatves_n2.jpg",
 		},
 		{
-			url: "https://www.zowaa.org/wp-content/uploads/2017/10/1-4.jpg",
+			url: "/images/initiatves_n3.JPG",
 		},
 
 		{
-			url: "https://www.zowaa.org/wp-content/uploads/2017/10/22237089_10213217649292022_1786033284_n.jpg",
+			url: "/images/initiatves_n4.jpeg",
 		},
 		{
-			url: "https://www.zowaa.org/wp-content/uploads/2017/10/22237063_10213217649612030_1771968641_n.jpg",
+			url: "/images/initiatves_n5.jpg",
 		},
 	];
 	// this is to git the photos from the d API 👇👇👇

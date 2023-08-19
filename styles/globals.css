@@ -105,6 +105,15 @@
   .form {
     @apply shadow-[5px_5px_0px_#548b68] p-12 rounded-[15px] border-2 border-solid border-[#548b68];
   }
+  @media (max-width: 580px) {
+    .form {
+      border: none;
+      box-shadow: none;
+      padding: 0.5rem;
+      position: relative;
+      top: -80px;
+    }
+  }
 
   .SPAN {
     @apply text-[blueviolet];
@@ -151,7 +160,7 @@
     @apply text-white font-bold text-[64px] inline tracking-[1px];
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   }
-
+  /* ===================Initiatives page syles=========================== */
   .InitiativesContent {
     @apply relative mt-8 px-4 py-0 mb-4;
   }
@@ -164,7 +173,7 @@
     @apply w-6/12 mb-4;
   }
   .CardImgs {
-    @apply h-[400px] w-[500px] relative;
+    @apply h-[350px] w-[500px] relative;
   }
   .CardImgs img {
     @apply w-full h-full object-cover rounded-[15px];
@@ -180,8 +189,9 @@
     @apply absolute -translate-x-2/4 h-[100px] w-[70%] flex items-center justify-center left-2/4 -bottom-2.5;
     background: linear-gradient(to top, #ffffff 50%, transparent);
   }
-  .read-more-about-Initiatives a {
-    @apply font-bold;
+  .read-more-about-Initiatives a,
+  .CardText a {
+    @apply font-bold text-primary underline cursor-pointer;
   }
 }
 
