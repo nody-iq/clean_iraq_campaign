@@ -50,7 +50,7 @@ const JoinUs: React.FC = () => {
 					setLoader(true);
 					await axios
 						.post(
-							"https://docs.google.com/forms/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse",
+							"https://airtable-serverless-functions.mujzuh.workers.dev/submit",
 							values
 						)
 						.then(() => {
