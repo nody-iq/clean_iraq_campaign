@@ -32,20 +32,20 @@ const FeadbackPage: React.FC = () => {
 	});
 
 	const handleSubmit = async (e: any) => {
-		console.log(e);
 		try {
+			const formData = new FormData();
+			formData.append("entry.1198253284", e.name);
+			formData.append("entry.1358856742", e.email);
+			formData.append("entry.208176542", e.msg);
+
 			const response = await axios.post(
 				"https://docs.google.com/forms/u/0/d/e/1FAIpQLSevQF484PATAvlOuIDpGV3jXq5BAe3SRZgSY0Trqo_i7b6l2g/formResponse",
-				{
-					"entry.1198253284": e.name,
-					"entry.1358856742": e.email,
-					"entry.208176542": e.msg,
-				}
+				formData
 			);
-			console.log("Response:", response.data);
+			// console.log("Response:", response.data);
 			setOpenModal(true);
 		} catch (error) {
-			console.error("Error:", error);
+			// console.error("Error:", error);
 		}
 	};
 
