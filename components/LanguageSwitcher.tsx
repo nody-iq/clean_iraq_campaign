@@ -28,13 +28,9 @@ const LanguageSwitcher: React.FC = () => {
 	return (
 		<Menu as="div" className="relative inline-block text-left">
 			<div>
-				<Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+				<Menu.Button className="flex w-full justify-center items-center gap-x-1 rounded-md bg-white px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
 					{router.locale == "ar" ? "AR" : "EN"}
-					<FontAwesomeIcon
-						icon={faLanguage}
-						className="px-2 lg:text-[1.5em]"
-						color="#E4A954"
-					/>
+					<FontAwesomeIcon icon={faLanguage} className="px-2" color="#E4A954" />
 				</Menu.Button>
 			</div>
 
