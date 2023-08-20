@@ -17,9 +17,19 @@ export async function getStaticPaths() {
 		"https://airtable-serverless-functions.mujzuh.workers.dev/provinces"
 	);
 	const provinces = response.data.provinces;
-	const paths = provinces.map((item) => ({
-		params: { slug: item.name },
-	}));
+
+	const paths = provinces.map(
+		(item) => (
+			{
+				params: { slug: item.name },
+			},
+			{
+				params: { slug: item.name },
+				locale: "en",
+			}
+		)
+	);
+
 	return {
 		paths,
 		fallback: false,

@@ -30,6 +30,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 			<Head>
 				<title>iraq clean campaign</title>
 				<link rel="icon" href="/favicon.ico" />
+				<meta property="og:title" content="My Page Title" />
+				<meta
+					property="og:description"
+					content="This is the description of my page."
+				/>
+				<meta property="og:image" content="URL_TO_YOUR_IMAGE" />
+				<meta property="og:url" content="URL_TO_YOUR_PAGE" />
 			</Head>
 
 			<Header />
