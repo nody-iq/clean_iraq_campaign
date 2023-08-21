@@ -85,7 +85,7 @@ const About: React.FC = () => {
 						<div
 							className={`${
 								key == 1 && "md:order-last"
-							} relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] rounded-[50%]`}
+							} relative w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] rounded-[50%]`}
 						>
 							<Image
 								className={`rounded-[50%]`}
@@ -97,28 +97,28 @@ const About: React.FC = () => {
 						</div>
 						<div className="grid justify-items-center text-center gap-5">
 							<div
-								className={`${item.bg} flex justify-center items-center rounded-[50%] w-[70px] h-[70px] md:w-[90px] md:h-[90px] lg:w-[100px] lg:h-[100px]`}
+								className={`${item.bg} flex justify-center items-center rounded-[50%] w-[70px] h-[70px] md:w-[90px] md:h-[90px] lg:w-[107px] lg:h-[107px]`}
 							>
-								<FontAwesomeIcon className="h2" icon={faQuoteLeft} color="white" />
+								<FontAwesomeIcon icon={faQuoteLeft} color="white" size="3x" />
 							</div>
-							<h2 className="h2">{t(item.title)}</h2>
-							<p className="h3 font-medium ">
+							<h2 className="h1">{t(item.title)}</h2>
+							<p className="text-[18px] font-medium lg:text-[21px]">
 								{t(item.subtitle)}
 							</p>
 						</div>
 					</div>
 				))}
 				<div className="flex flex-col">
-					<h2 className="h2 pt-20 pb-10">{t("Our story")}</h2>
+					<h2 className="h1 pt-20 pb-10">{t("Campaign story")}</h2>
 					{story.map((text)=>(
-						<p className="h3 font-medium pb-3">{t(text.subtitle)}</p>
+						<p className="text-[18px] font-medium lg:text-[21px] pb-3">{t(text.subtitle)}</p>
 					))}
 					<iframe className="rounded-[12px] h-[500px]" src="https://www.youtube.com/embed/F50xz-jFFrE" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
-					<h2 className="h2 py-10">{t("Campaign Expansion")}</h2>
-					<p className="h3 font-medium pb-3">
+					<h2 className="h1 py-10">{t("Campaign Expansion")}</h2>
+					<p className="text-[18px] font-medium lg:text-[21px] pb-3">
 						{t("The campaign launched by Murtada from Baghdad has expanded today to include 15 Iraqi governorates whose youth went out to clean the banks of rivers polluted with waste. The campaign is based on the principle of continuity and sustainability and aims not only for cleaning but also to spread the culture of change and the spirit of cooperation.")}
 					</p>
-					<p className="h3 font-medium pb-3">
+					<p className="text-[18px] font-medium lg:text-[21px] pb-3">
 						{t("More than 10000 people are currently participating in the campaign, who collected more than 75,000 bags of waste, with each gathering using 3,000 bags, and everyone feels responsible for the change. Although cleaning the river is a governmental responsibility, the people have an important role in the change to preserve their city and protect it from pollution.")}
 					</p>
 				</div>
