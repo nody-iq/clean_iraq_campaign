@@ -109,7 +109,7 @@ const About: React.FC = () => {
 					</div>
 				))}
 				<div className="flex flex-col">
-					<h2 className="h2 pt-20 pb-10">{t("Our story")}</h2>
+					<h2 className="h2 pt-20 pb-10">{t("Campaign story")}</h2>
 					{story.map((text)=>(
 						<p className="h3 font-medium pb-3">{t(text.subtitle)}</p>
 					))}
