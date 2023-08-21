@@ -124,7 +124,7 @@ const Header: React.FC = () => {
 				</a>
 				<nav className="xl:flex  items-center justify-between  bg-white xl:px-10 px-7 z-30">
 					<ul
-						className={` md:mt-[30px] xl:flex xl:items-center xl:pb-6  absolute xl:static bg-[#fff] xl:z-auto  left-0 w-full xl:w-auto xl:pl-0 pl-9 transition-all duration-500 ease-in ${
+						className={` xl:mt-[20px] xl:flex xl:items-center xl:pb-6  absolute xl:static bg-[#fff] xl:z-auto  left-0 w-full xl:w-auto xl:pl-0 pl-9 transition-all duration-500 ease-in ${
 							open ? "top-[60.5px] md:top-20" : "top-[-540px]"
 						}`}
 					>
