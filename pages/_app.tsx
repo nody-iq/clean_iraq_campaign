@@ -29,14 +29,14 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
 			<Head>
 				<title>iraq clean campaign</title>
-				<link rel="icon" href="/favicon.ico" />
-				<meta property="og:title" content="My Page Title" />
+				<link rel="icon" href="/images/logo.png" />
+				<meta property="og:title" content="Iraq Clean Campaign" />
 				<meta
 					property="og:description"
-					content="This is the description of my page."
+					content="This is a campaign from you, and for all of you, we can make a positive change, cooperate and strive for a cleaner and more beautiful Iraq."
 				/>
-				<meta property="og:image" content="URL_TO_YOUR_IMAGE" />
-				<meta property="og:url" content="URL_TO_YOUR_PAGE" />
+				<meta property="og:image" content="/images/logo.png" />
+				<meta property="og:url" content="https://iraq_clean_campaign" />
 			</Head>
 
 			<Header />
